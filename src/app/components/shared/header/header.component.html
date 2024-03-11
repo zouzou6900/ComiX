@@ -1,4 +1,6 @@
 <header>
   <app-header-top></app-header-top>
-  <app-header-bottom></app-header-bottom>
+  @if (isRouteAdmin() === false) {
+    <app-header-bottom></app-header-bottom>
+  }
 </header>

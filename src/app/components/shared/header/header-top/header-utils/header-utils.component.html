@@ -1,3 +1,5 @@
-<a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+@if (isRouteAdmin()===false) {
+    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+}
 <a href="#"><i class="fa-solid fa-user"></i></a>
-<a href="#"><i class="fa-solid fa-gear"></i></a>
+<a [routerLink]="['/admin']"><i class="fa-solid fa-gear"></i></a>

@@ -17,4 +17,7 @@ import { HeaderBottomComponent } from "./header-bottom/header-bottom.component";
 })
 export class HeaderComponent {
   constructor(private router: Router) {}
+  isRouteAdmin(): boolean {
+    return this.router.url === '/admin';
+  }
 }

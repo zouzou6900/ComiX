@@ -14,7 +14,7 @@ body:not(.easyadmin-content-width-full) .wrapper {
 	width: calc(100% - 0px);
 }
 .main-sidebar {
-	padding: 0px;
+	padding: 1px;
 	background: #131313;;
     width: 300px;
 }
@@ -34,7 +34,7 @@ body:not(.easyadmin-content-width-full) .wrapper {
 //     border-bottom: 1px solid #1f262d;
 // }
 ul.sidebar-menu {
-    border-bottom: 1px solid #37414b;
+    //border-bottom: 1px solid #37414b;
     list-style-type:none
 }
 .treeview-menu {
