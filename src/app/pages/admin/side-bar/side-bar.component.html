@@ -3,10 +3,10 @@
         <ul class="sidebar-menu tree" data-widget="tree" data-animation-speed="250">
             <mat-accordion>
                 <mat-expansion-panel (opened)="panelOpenState = true"
-                                     (closed)="panelOpenState = false">
+                                     (closed)="panelOpenState = false" [expanded]="true">
                     <mat-expansion-panel-header class="style-black">
                         <mat-panel-title>
-                            <a href="" class="">
+                            <a  class="">
                                 <i class="fa fa-fw fa-dashboard"></i>            
                                 <span>Dashboard</span>       
                             </a>
@@ -15,31 +15,31 @@
                     <li class="treeview active submenu-active menu-open">           
                         <ul class="treeview-menu">
                             <li class=" active">
-                                <a href="/admin" class="">
+                                <a [routerLink]="['/admin/dashboard']" class="">
                                     <i class="fa fa-fw fa-dashboard"></i>            
                                     <span>Dashboard</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="/admin" class="">
+                                <a [routerLink]="['/admin/dashboard']" class="">
                                     <i class="fa fa-fw fa-cogs"></i>            
                                     <span>Paramètre général</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="/admin" class="">
+                                <a [routerLink]="['/admin/dashboard']" class="">
                                 <i class="fa fa-fw fa-bar-chart-o"></i>            
                                 <span>Statistiques</span>
                             </a>
                             </li>
                             <li class=" ">
-                                <a href="/admin" class="">
+                                <a [routerLink]="['/admin/dashboard']" class="">
                                     <i class="fa fa-fw fa-sticky-note"></i>            
                                     <span>Evenements</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="/admin" class="">
+                                <a [routerLink]="['/admin/dashboard']" class="">
                                     <i class="fa fa-fw fa-share-alt"></i>            
                                     <span>Médias sociaux</span>
                                 </a>
@@ -52,7 +52,7 @@
                                     (closed)="panelOpenState = false">
                         <mat-expansion-panel-header class="style-black">
                             <mat-panel-title>
-                                <a href="#" class="">
+                                <a [routerLink]="['/admin/dashboard']"s="">
                                     <i class="fa fa-fw fa-users"></i>            
                                     <span>Utilisateurs</span>                              
                                 </a>
@@ -60,37 +60,37 @@
                         </mat-expansion-panel-header>
                         <ul class="treeview-menu">
                         <li class=" ">
-                            <a href="/admin" class="">
+                            <a [routerLink]="['/admin/dashboard']" class="">
                                 <i class="fa fa-fw fa-users"></i>            
                                 <span>Liste des utilisateurs</span>
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="/admin" class="">
+                            <a [routerLink]="['/admin/dashboard']" class="">
                                 <i class="fa fa-fw fa-user"></i>            
                                 <span>Créer un utilisateur</span>
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="/admin" class="">
+                            <a [routerLink]="['/admin/dashboard']" class="">
                                 <i class="fa fa-fw fa-code"></i>            
                                 <span>Administrateurs</span>
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="/admin" class="">
+                            <a [routerLink]="['/admin/dashboard']" class="">
                                 <i class="fa fa-fw fa-shield"></i>            
                                 <span>Modérateurs</span>
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="/admin" class="">
+                            <a [routerLink]="['/admin/dashboard']" class="">
                                 <i class="fa fa-fw fa-user-times"></i>            
                                 <span>Utilisateur banni</span>
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="/admin" class="">
+                            <a [routerLink]="['/admin/dashboard']" class="">
                                 <i class="fa fa-fw fa-graduation-cap"></i>            
                                 <span>Roles des utilisateurs</span>
                             </a>
@@ -99,21 +99,33 @@
                 </mat-expansion-panel>
             </mat-accordion>     
             <li class="">
-                <a href="/admin" class="">
+                <a [routerLink]="['/admin/dashboard']" class="">
                     <i class="fa fa-fw fa-file"></i>            
                     <span>Templates</span>
                 </a>
             </li>
             <li class="">
-                <a href="/admin" class="">
+                <a [routerLink]="['/admin/dashboard']" class="">
                     <i class="fa fa-fw fa-link"></i>            
                     <span>Logs</span>
                 </a>
             </li>
             <li class="">
-                <a href="/admin" class="">
+                <a [routerLink]="['/admin/dashboard']" class="">
                     <i class="fa fa-fw fa-envelope"></i>            
                     <span>Contact</span>
+                </a>
+            </li>
+            <li class="">
+                <a [routerLink]="['/admin/dashboard']" class="">
+                    <i class="fa fa-sign-in"></i>            
+                    <span>Retour au site</span>
+                </a>
+            </li>
+            <li class="">
+                <a [routerLink]="['/admin/dashboard']" class="">
+                    <i class="fa fa-power-off"></i>          
+                    <span>Déconnexion</span>
                 </a>
             </li>
         </ul>
