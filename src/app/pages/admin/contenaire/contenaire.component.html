@@ -6,4 +6,19 @@
         <h2 class="">Nous sommes le {{ dateActuelle | date:'dd/MM/yyyy' }} à {{ dateActuelle | date:'hh:mm:ss' }}</h2>
     </div>
 </div>
-<app-content></app-content>
+@if (isRouteDashboard()===true) {
+    <app-content></app-content>
+}
+@if (isRouteSettings()===true) {
+    <app-settings></app-settings>
+}
+@if (isRouteStatus()===true) {
+    <app-status></app-status>
+}
+@if (isRouteEvenements()===true) {
+    <app-evenements></app-evenements>
+}
+@if (isRouteSociaux()===true) {
+    <app-sociaux></app-sociaux>
+}
+
