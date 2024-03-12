@@ -16,7 +16,7 @@ export class ContenaireComponent {
   title="Dashboard";
   
   constructor(private router: Router) { }
-
+  
   getLastSegment(): string {
     const url = this.router.url;
     const segments = url.split('/');
@@ -33,5 +33,7 @@ export class ContenaireComponent {
       this.dateActuelle = new Date();
     });
   }
-
+  capitalizeFirstLetter(str: string): string {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 }
