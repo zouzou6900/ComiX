@@ -1,0 +1,109 @@
+<div class="nav-link">
+  <a routerLink="/home"> <i class="fa-solid fa-house"></i> Accueil </a>
+</div>
+@if(isLoggedIn()){
+<div class="nav-link">
+  <a routerLink="/announces"> <i class="fa-solid fa-id-badge"></i> Annonces </a>
+</div>
+} @else {
+<div class="nav-link">
+  <a routerLink (click)="openModal(haveToConnectModal)"
+    ><i class="fa-solid fa-id-badge"></i> Annonces</a
+  >
+</div>
+} @if(!isLoggedIn()){
+<div class="nav-link">
+  <a routerLink="/login"
+    ><i class="fa-solid fa-user"></i>
+
+    <span> Se connecter</span>
+  </a>
+</div>
+} @if(isLoggedIn()){
+<div class="nav-link">
+  <a routerLink="/admin/dashboard"
+    ><i class="fa-solid fa-user"></i>
+    @if(nickname){
+    <span> Bonjour {{nickname}}</span>
+    } @else { Bienvenue }</a
+  >
+</div>
+} @if(isLoggedIn()){
+<div class="nav-link">
+  <a routerLink="/admin/dashboard"><i class="fa-solid fa-gear"></i> Admin</a>
+</div>
+} @if(isLoggedIn()){
+<div class="nav-link">
+  <a (click)="openModal(logoutModal)"
+    ><i class="fa-solid fa-right-from-bracket"></i>
+    Se déconnecter
+  </a>
+</div>
+}
+
+<ng-template #logoutModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirmation</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('cancel')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Êtes-vous sûr de vouloir vous déconnecter ?
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="modal.close('logout')"
+    >
+      Se déconnecter
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="modal.dismiss('cancel')"
+    >
+      Annuler
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #haveToConnectModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Accès interdit!</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('cancel')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Vous devez être connecté pour accéder aux annonces !
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-danger"
+      routerLink="login"
+      (click)="modal.dismiss('close')"
+    >
+      Se connecter
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      (click)="modal.dismiss('cancel')"
+    >
+      Annuler
+    </button>
+  </div>
+</ng-template>
