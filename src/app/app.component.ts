@@ -6,7 +6,7 @@ import { CommonModule } from "@angular/common";
 import { MatSelectModule } from "@angular/material/select";
 
 @Component({
-  selector: "app-root",
+  selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
@@ -17,9 +17,9 @@ import { MatSelectModule } from "@angular/material/select";
     CommonModule,
     MatSelectModule,
   ],
-  templateUrl: "./app.component.html",
-  styleUrl: "./app.component.scss",
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = "front";
+  title = 'front';
 }

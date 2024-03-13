@@ -24,6 +24,26 @@ ul.sidebar-menu {
 .sidebar-menu > li > a {
 padding: 24px;
 }
+.info-box {
+  display: block;
+  min-height: 90px;
+  width: 100%;
+  box-shadow: inset 0px 0px 0px 1px black, 0px 5px 10px rgba(0,0,0,0.4);
+  border-radius: 2px;
+  margin-bottom: 15px;
+  background-image: url(/assets/img/decoadmin.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.info-box-general {
+  background-color: #e74c3c;
+}
+.info-box-icon-general {
+  background: #c0392b;
+}
+.info-box-user {
+  background-color: rgb(50, 108, 149);
+}
 .info-box-icon-user {
   background: rgb(34, 49, 63);
 }

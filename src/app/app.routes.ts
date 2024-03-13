@@ -4,7 +4,6 @@ import { AboutComponent } from "./pages/about/about.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { AdminComponent } from "./pages/admin/admin.component";
 import { ContentComponent } from "./pages/admin/content/content.component";
-import { adminGuard } from "./admin.guard";
 import { SettingsComponent } from "./pages/admin/side-bar/dashboard/settings/settings.component";
 import { StatusComponent } from "./pages/admin/side-bar/dashboard/status/status.component";
 import { EvenementsComponent } from "./pages/admin/side-bar/dashboard/evenements/evenements.component";
@@ -13,6 +12,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { AnnouncesComponent } from "./pages/announces/announces.component";
 import { authGuard } from "./guards/auth.guard";
+import { adminGuard } from "./guards/admin.guard";
 
 export const routes: Routes = [
   { path: "login", component: LoginComponent },
