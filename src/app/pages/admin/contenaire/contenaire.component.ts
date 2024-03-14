@@ -7,6 +7,8 @@ import { SettingsComponent } from '../side-bar/dashboard/settings/settings.compo
 import { StatusComponent } from '../side-bar/dashboard/status/status.component';
 import { EvenementsComponent } from '../side-bar/dashboard/evenements/evenements.component';
 import { SociauxComponent } from '../side-bar/dashboard/sociaux/sociaux.component';
+import { UsersComponent } from '../side-bar/users/users/users.component';
+import { AdministrateurComponent } from '../side-bar/users/administrateur/administrateur.component';
 
 @Component({
   selector: 'app-contenaire',
@@ -18,6 +20,8 @@ import { SociauxComponent } from '../side-bar/dashboard/sociaux/sociaux.componen
     StatusComponent,
     EvenementsComponent,
     SociauxComponent,
+    UsersComponent,
+    AdministrateurComponent,
   ],
   templateUrl: './contenaire.component.html',
   styleUrl: './contenaire.component.scss',
@@ -60,5 +64,8 @@ export class ContenaireComponent {
   }
   isRouteSociaux(): boolean {
     return this.router.url === '/admin/sociaux';
+  }
+  isRouteUsers(): boolean {
+    return this.router.url === '/admin/users';
   }
 }
