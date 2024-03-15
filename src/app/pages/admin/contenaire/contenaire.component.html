@@ -1,24 +1,30 @@
-<div style="display: flex; justify-content: space-between;">
-    <div class="">
-        <h2 class="">{{ capitalizeFirstLetter(getLastSegment()) }}</h2>
-    </div>
-    <div>
-        <h2 class="">Nous sommes le {{ dateActuelle | date:'dd/MM/yyyy' }} à {{ dateActuelle | date:'hh:mm:ss' }}</h2>
-    </div>
+<div style="display: flex; justify-content: space-between">
+  <div class="">
+    <h2 class="">{{ capitalizeFirstLetter(getLastSegment()) }}</h2>
+  </div>
+  <div>
+    <h2 class="">
+      Nous sommes le {{ dateActuelle | date : "dd/MM/yyyy" }} à
+      {{ dateActuelle | date : "hh:mm:ss" }}
+    </h2>
+  </div>
 </div>
 @if (isRouteDashboard()===true) {
-    <app-content></app-content>
+<app-content></app-content>
+} @if (isRouteSettings()===true) {
+<app-settings></app-settings>
+} @if (isRouteStatus()===true) {
+<app-status></app-status>
+} @if (isRouteEvenements()===true) {
+<app-evenements></app-evenements>
+} @if (isRouteSociaux()===true) {
+<app-sociaux></app-sociaux>
+} @if (isRouteUsers()===true) {
+<app-list-users></app-list-users>
+} @if (isRouteAdministrateur()===true) {
+<app-administrateur></app-administrateur>
+} @if (isRouteUsersBan()===true) {
+<app-users-banni></app-users-banni>
+} @if (isRouteRoleUsers()===true) {
+<app-role-users></app-role-users>
 }
-@if (isRouteSettings()===true) {
-    <app-settings></app-settings>
-}
-@if (isRouteStatus()===true) {
-    <app-status></app-status>
-}
-@if (isRouteEvenements()===true) {
-    <app-evenements></app-evenements>
-}
-@if (isRouteSociaux()===true) {
-    <app-sociaux></app-sociaux>
-}
-

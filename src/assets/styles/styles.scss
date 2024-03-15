@@ -152,6 +152,22 @@ font-weight: 400;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
   border-top: 2px solid #ff004c;
 }
+.badge {
+  display: inline-block;
+  padding: .25em .4em;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--border-radius);
+  transition: all .08s ease-in
+}
+.badge-secondary {
+    color: #212529;
+    background-color: #ff004c
+}
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;

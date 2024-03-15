@@ -7,6 +7,12 @@ import { SettingsComponent } from '../side-bar/dashboard/settings/settings.compo
 import { StatusComponent } from '../side-bar/dashboard/status/status.component';
 import { EvenementsComponent } from '../side-bar/dashboard/evenements/evenements.component';
 import { SociauxComponent } from '../side-bar/dashboard/sociaux/sociaux.component';
+import { UsersComponent } from '../side-bar/users/users/users.component';
+import { AdministrateurComponent } from '../side-bar/users/administrateur/administrateur.component';
+import { UsersBanniComponent } from '../side-bar/users/users-banni/users-banni.component';
+import { RoleUsersComponent } from '../side-bar/users/role-users/role-users.component';
+import { ListUsersComponent } from '../side-bar/users/list-users/list-users.component';
+import { CheckAnnouncesComponent } from '../side-bar/check-announces/check-announces.component';
 
 @Component({
   selector: 'app-contenaire',
@@ -18,6 +24,12 @@ import { SociauxComponent } from '../side-bar/dashboard/sociaux/sociaux.componen
     StatusComponent,
     EvenementsComponent,
     SociauxComponent,
+    UsersComponent,
+    ListUsersComponent,
+    AdministrateurComponent,
+    UsersBanniComponent,
+    RoleUsersComponent,
+    CheckAnnouncesComponent,
   ],
   templateUrl: './contenaire.component.html',
   styleUrl: './contenaire.component.scss',
@@ -32,11 +44,9 @@ export class ContenaireComponent {
     const segments = url.split('/');
     return segments[segments.length - 1];
   }
-
   ngOnInit() {
     this.startTimer();
   }
-
   startTimer() {
     interval(1000).subscribe(() => {
       this.dateActuelle = new Date();
@@ -45,7 +55,6 @@ export class ContenaireComponent {
   capitalizeFirstLetter(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
-
   isRouteDashboard(): boolean {
     return this.router.url === '/admin/dashboard';
   }
@@ -60,5 +69,20 @@ export class ContenaireComponent {
   }
   isRouteSociaux(): boolean {
     return this.router.url === '/admin/sociaux';
+  }
+  isRouteUsers(): boolean {
+    return this.router.url === '/admin/listUsers';
+  }
+  isRouteAdministrateur(): boolean {
+    return this.router.url === '/admin/administrateur';
+  }
+  isRouteUsersBan(): boolean {
+    return this.router.url === '/admin/usersBan';
+  }
+  isRouteRoleUsers(): boolean {
+    return this.router.url === '/admin/roleUsers';
+  }
+  isRouteCheckannounces(): boolean {
+    return this.router.url === '/admin/checkAnnouces';
   }
 }

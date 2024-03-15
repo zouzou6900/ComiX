@@ -7,11 +7,11 @@ import { User } from "../../interfaces/auth";
 import { emailValidator } from "../../validators/email-validator";
 
 @Component({
-  selector: "app-register",
+  selector: 'app-register',
   standalone: true,
   imports: [ReactiveFormsModule, RouterLink],
-  templateUrl: "./register.component.html",
-  styleUrl: "./register.component.scss",
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
   registerForm = this.fb.group(
@@ -45,16 +45,16 @@ export class RegisterComponent {
     return this.registerForm.controls["lastname"];
   }
   get nickname() {
-    return this.registerForm.controls["nickname"];
+    return this.registerForm.controls['nickname'];
   }
   get email() {
-    return this.registerForm.controls["email"];
+    return this.registerForm.controls['email'];
   }
   get password() {
-    return this.registerForm.controls["password"];
+    return this.registerForm.controls['password'];
   }
   get confirmPassword() {
-    return this.registerForm.controls["confirmPassword"];
+    return this.registerForm.controls['confirmPassword'];
   }
   get street() {
     return this.registerForm.controls["address"].get("street");
@@ -79,12 +79,12 @@ export class RegisterComponent {
     delete postData.confirmPassword;
     this.authService.registerUser(postData as User).subscribe(
       (response) => {
-        window.alert("Compte créé avec succès !");
-        window.location.href = "/login";
+        window.alert('Compte créé avec succès !');
+        window.location.href = '/login';
       },
       (error) => {
         console.error(error);
-        window.alert("Une erreur est survenue lors de la création du compte.");
+        window.alert('Une erreur est survenue lors de la création du compte.');
       }
     );
   }

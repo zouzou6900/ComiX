@@ -24,18 +24,21 @@
   <a routerLink="/admin/dashboard"
     ><i class="fa-solid fa-user"></i>
     @if(nickname){
-    <span> Bonjour {{nickname}}</span>
+    <span> Bonjour {{ nickname }}</span>
     } @else { Bienvenue }</a
   >
 </div>
 } @if(isLoggedIn()){
 <div class="nav-link">
-  <a routerLink="/admin/dashboard"><i class="fa-solid fa-gear"></i> Admin</a>
+  <a routerLink="/admin/dashboard"><i class="fa-solid fa-gear"></i></a>
+</div>
+<div class="nav-link">
+  <a routerLink="/admin/dashboard"><i class="fa-solid fa-bell"></i></a>
 </div>
 } @if(isLoggedIn()){
 <div class="nav-link">
   <a (click)="openModal(logoutModal)"
-    ><i class="fa-solid fa-right-from-bracket"></i>
+    ><i class="fa fa-power-off"></i>
     Se déconnecter
   </a>
 </div>
@@ -53,9 +56,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body">
-    Êtes-vous sûr de vouloir vous déconnecter ?
-  </div>
+  <div class="modal-body">Êtes-vous sûr de vouloir vous déconnecter ?</div>
   <div class="modal-footer">
     <button
       type="button"
