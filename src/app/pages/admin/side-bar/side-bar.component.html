@@ -60,7 +60,7 @@
         >
           <mat-expansion-panel-header class="style-black">
             <mat-panel-title>
-              <a [routerLink]="['/admin/users']" s="">
+              <a [routerLink]="['/admin/listUsers']" s="">
                 <i class="fa fa-fw fa-users"></i>
                 <span>Utilisateurs</span>
               </a>
@@ -68,7 +68,7 @@
           </mat-expansion-panel-header>
           <ul class="treeview-menu">
             <li class=" ">
-              <a [routerLink]="['/admin/users']" class="">
+              <a [routerLink]="['/admin/listUsers']" class="">
                 <i class="fa fa-fw fa-users"></i>
                 <span>Liste des utilisateurs</span>
               </a>
@@ -95,32 +95,32 @@
         </mat-expansion-panel>
       </mat-accordion>
       <li class="">
-        <a [routerLink]="['/admin/dashboard']" class="">
-          <i class="fa fa-fw fa-file"></i>
-          <span>Templates</span>
+        <a [routerLink]="['/admin/checkAnnounces']" class="">
+          <i class="fa-fw fa-solid fa-id-badge"></i>
+          <span>Annonces</span>
         </a>
       </li>
       <li class="">
-        <a [routerLink]="['/admin/dashboard']" class="">
+        <a [routerLink]="['/admin/logs']" class="">
           <i class="fa fa-fw fa-link"></i>
           <span>Logs</span>
         </a>
       </li>
       <li class="">
-        <a [routerLink]="['/admin/dashboard']" class="">
+        <a [routerLink]="['/admin/contact']" class="">
           <i class="fa fa-fw fa-envelope"></i>
           <span>Contact</span>
         </a>
       </li>
       <li class="">
         <a [routerLink]="['/home']" class="">
-          <i class="fa fa-sign-in"></i>
+          <i class="fa fa-fw fa-sign-in"></i>
           <span>Retour au site</span>
         </a>
       </li>
       <li class="">
         <a [routerLink]="['/home']" class="">
-          <i class="fa fa-power-off"></i>
+          <i class="fa fa-fw fa-power-off"></i>
           <span>Déconnexion</span>
         </a>
       </li>

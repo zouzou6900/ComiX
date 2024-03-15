@@ -13,10 +13,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { AnnouncesComponent } from './pages/announces/announces.component';
 import { authGuard } from './guards/auth.guard';
 import { adminGuard } from './guards/admin.guard';
-import { UsersComponent } from './pages/admin/side-bar/users/users/users.component';
 import { AdministrateurComponent } from './pages/admin/side-bar/users/administrateur/administrateur.component';
 import { UsersBanniComponent } from './pages/admin/side-bar/users/users-banni/users-banni.component';
 import { RoleUsersComponent } from './pages/admin/side-bar/users/role-users/role-users.component';
+import { ListUsersComponent } from './pages/admin/side-bar/users/list-users/list-users.component';
+import { CheckAnnouncesComponent } from './pages/admin/side-bar/check-announces/check-announces.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -46,10 +47,11 @@ export const routes: Routes = [
       { path: 'status', component: StatusComponent },
       { path: 'evenements', component: EvenementsComponent },
       { path: 'sociaux', component: SociauxComponent },
-      { path: 'users', component: UsersComponent },
+      { path: 'listUsers', component: ListUsersComponent },
       { path: 'administrateur', component: AdministrateurComponent },
       { path: 'usersBan', component: UsersBanniComponent },
       { path: 'roleUsers', component: RoleUsersComponent },
+      { path: 'checkAnnounces', component: CheckAnnouncesComponent },
     ],
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

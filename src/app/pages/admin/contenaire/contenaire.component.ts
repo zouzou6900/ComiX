@@ -11,6 +11,8 @@ import { UsersComponent } from '../side-bar/users/users/users.component';
 import { AdministrateurComponent } from '../side-bar/users/administrateur/administrateur.component';
 import { UsersBanniComponent } from '../side-bar/users/users-banni/users-banni.component';
 import { RoleUsersComponent } from '../side-bar/users/role-users/role-users.component';
+import { ListUsersComponent } from '../side-bar/users/list-users/list-users.component';
+import { CheckAnnouncesComponent } from '../side-bar/check-announces/check-announces.component';
 
 @Component({
   selector: 'app-contenaire',
@@ -23,9 +25,11 @@ import { RoleUsersComponent } from '../side-bar/users/role-users/role-users.comp
     EvenementsComponent,
     SociauxComponent,
     UsersComponent,
+    ListUsersComponent,
     AdministrateurComponent,
     UsersBanniComponent,
     RoleUsersComponent,
+    CheckAnnouncesComponent,
   ],
   templateUrl: './contenaire.component.html',
   styleUrl: './contenaire.component.scss',
@@ -67,7 +71,7 @@ export class ContenaireComponent {
     return this.router.url === '/admin/sociaux';
   }
   isRouteUsers(): boolean {
-    return this.router.url === '/admin/users';
+    return this.router.url === '/admin/listUsers';
   }
   isRouteAdministrateur(): boolean {
     return this.router.url === '/admin/administrateur';
@@ -77,5 +81,8 @@ export class ContenaireComponent {
   }
   isRouteRoleUsers(): boolean {
     return this.router.url === '/admin/roleUsers';
+  }
+  isRouteCheckannounces(): boolean {
+    return this.router.url === '/admin/checkAnnouces';
   }
 }
