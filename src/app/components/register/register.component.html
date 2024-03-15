@@ -7,6 +7,42 @@
     <h2 class="header-form">S'enregister</h2>
 
     <div class="field">
+      <label for="firstname">Prénom</label>
+      <input
+        type="text"
+        id="firstname"
+        name="firstname"
+        formControlName="firstname"
+        required
+        placeholder="Votre Prénom"
+      />
+      @if(firstname.invalid && firstname.dirty || firstname.touched){
+      <small class="error">
+        @if(firstname.errors?.['required']){
+        <div>Prénom obligatoire</div>
+        }
+      </small>
+      }
+    </div>
+    <div class="field">
+      <label for="lastname">Nom de famille</label>
+      <input
+        type="text"
+        id="lastname"
+        name="lastname"
+        formControlName="lastname"
+        required
+        placeholder="Votre nom de famille"
+      />
+      @if(lastname.invalid && lastname.dirty || lastname.touched){
+      <small class="error">
+        @if(lastname.errors?.['required']){
+        <div>Nom de famille obligatoire</div>
+        }
+      </small>
+      }
+    </div>
+    <div class="field">
       <label for="nickname">Surnom</label>
       <input
         type="text"
@@ -56,13 +92,17 @@
         name="password"
         formControlName="password"
         required
+        minlength="8"
         placeholder="Mot de passe"
       />
       @if(password.invalid && password.dirty || password.touched){
+        
       <small class="error">
         @if(password.errors?.['required']){
         <div>Mot de passe obligatoire</div>
-        }
+        }  @if(password.errors?.['minlength']){
+          <div>Mot de passe trop court</div>
+          }
       </small>
       }
     </div>
@@ -75,7 +115,9 @@
         name="confirmPassword"
         formControlName="confirmPassword"
         required
+        equalTo="password"
         placeholder="Confirmation du mot de passe"
+        
       />
       @if(confirmPassword.invalid && confirmPassword.dirty ||
       confirmPassword.touched){
@@ -93,6 +135,26 @@
       </small>
       }}
     </div>
+
+
+    <form [formGroup]="registerForm">
+      
+    <h3>Adresse</h3>
+    <div formGroupName="address">
+      <label for="street">Nom de la rue</label>
+      <input class="street" type="text" formControlName="street">
+      <label for="number">Numéro</label>
+      <input class="number" type="text" formControlName="number">
+      <label for="zip_code">Code postal</label>
+      <input class="zip-code" type="number" formControlName="zip_code">
+      <label for="city">Ville</label>
+      <input class="city" type="text" formControlName="city">
+    </div>
+
+
+</form>
+
+
 
     <button [disabled]="registerForm.invalid" type="submit">
       Créer mon compte

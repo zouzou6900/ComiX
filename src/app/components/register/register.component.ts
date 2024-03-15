@@ -4,6 +4,7 @@ import { RouterLink } from "@angular/router";
 import { passwordMatchValidator } from "../../validators/password-match.directive";
 import { AuthService } from "../../services/auth.service";
 import { User } from "../../interfaces/auth";
+import { emailValidator } from "../../validators/email-validator";
 
 @Component({
   selector: "app-register",
@@ -15,18 +16,34 @@ import { User } from "../../interfaces/auth";
 export class RegisterComponent {
   registerForm = this.fb.group(
     {
+      firstname: ["", [Validators.required]],
+      lastname: ["", [Validators.required]],
       nickname: ["", [Validators.required, Validators.pattern("^[a-zA-Z]+$")]],
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", Validators.required],
+      email: ["", [Validators.required, Validators.email, emailValidator]],
+      password: ["", [Validators.required, Validators.minLength(8)]],
       confirmPassword: ["", Validators.required],
+      address: this.fb.group({
+        street: ['', Validators.required],
+        number: ['', Validators.required],
+        city: ['', Validators.required],
+        zip_code: ['', Validators.required],
+      }),
+      
+      
     },
     {
       validators: passwordMatchValidator,
     }
   );
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {console.log(this.registerForm.value);}
 
+  get firstname() {
+    return this.registerForm.controls["firstname"];
+  }
+  get lastname() {
+    return this.registerForm.controls["lastname"];
+  }
   get nickname() {
     return this.registerForm.controls["nickname"];
   }
@@ -39,6 +56,22 @@ export class RegisterComponent {
   get confirmPassword() {
     return this.registerForm.controls["confirmPassword"];
   }
+  get street() {
+    return this.registerForm.controls["address"].get("street");
+  }
+
+  get number() {
+    return this.registerForm.controls['address'].get('number');
+  }
+
+  get city() {
+    return this.registerForm.controls['address'].get('city');
+  }
+
+  get zip_code() {
+    return this.registerForm.controls['address'].get('zip_code');
+  }
+  
 
   submitDetails() {
     console.log(this.registerForm.value);

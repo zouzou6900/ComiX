@@ -83,6 +83,49 @@
       "nickname": "tyj",
       "email": "jytjty@de",
       "password": "eee"
+    },
+    {
+      "nickname": "sz",
+      "email": "aa@aa",
+      "password": "aa",
+      "id": "OMkVDwh"
+    },
+    {
+      "nickname": "dede",
+      "email": "dededede@gmail",
+      "password": "dede",
+      "id": "GgSEMoo"
+    },
+    {
+      "nickname": "dddd",
+      "email": "donkeyhtv@gmail.com",
+      "password": "dddddddd",
+      "id": "-x7XIco"
+    },
+    {
+      "firstname": "Steve",
+      "lastname": "Amissi",
+      "nickname": "dede",
+      "email": "donkeyhtv@gmail.com",
+      "password": "gggggggg",
+      "address": {
+        "street": "rue de l'athénée"
+      },
+      "id": "GxBJJ_u"
+    },
+    {
+      "firstname": "Steve",
+      "lastname": "Amissi",
+      "nickname": "fezf",
+      "email": "donkeyhtv@gmail.com",
+      "password": "aaaaaaaa",
+      "address": {
+        "street": "Steve Amissi",
+        "number": 45,
+        "city": "Tournai",
+        "zip_code": "7530"
+      },
+      "id": "Z9Nt4T2"
     }
   ]
 }

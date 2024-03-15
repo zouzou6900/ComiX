@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   providedIn: "root",
 })
 export class AuthService {
-  private baseUrl = "http://localhost:3000";
+  private baseUrl = "http://localhost:3333";
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -16,17 +16,17 @@ export class AuthService {
   nickname$ = this.nicknameSubject.asObservable();
 
   registerUser(userDetails: User) {
-    return this.http.post(`${this.baseUrl}/users`, userDetails);
+    return this.http.post(`${this.baseUrl}/auth/register`, userDetails);
   }
 
   loginUser(email: string, password: string): Observable<User> {
-    return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`).pipe(
-      map((users) => {
-        if (users.length > 0 && users[0].password === password) {
+    return this.http.post<User>(`${this.baseUrl}/auth/login`, { email, password }).pipe(
+      map((user) => {
+        if (user) {
           sessionStorage.setItem("email", email);
-          sessionStorage.setItem("nickname", users[0].nickname);
-          this.nicknameSubject.next(users[0].nickname);
-          return users[0];
+          sessionStorage.setItem("nickname", user.nickname);
+          this.nicknameSubject.next(user.nickname);
+          return user;
         } else {
           throw new Error("Invalid credentials");
         }
@@ -39,7 +39,6 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    // Vérifie si l'email de l'utilisateur est présent dans le sessionStorage
     return !!sessionStorage.getItem("email");
   }
 }
