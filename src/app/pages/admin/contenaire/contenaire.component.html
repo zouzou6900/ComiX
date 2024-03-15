@@ -21,4 +21,10 @@
 <app-sociaux></app-sociaux>
 } @if (isRouteUsers()===true) {
 <app-users></app-users>
+} @if (isRouteAdministrateur()===true) {
+<app-administrateur></app-administrateur>
+} @if (isRouteUsersBan()===true) {
+<app-users-banni></app-users-banni>
+} @if (isRouteRoleUsers()===true) {
+<app-role-users></app-role-users>
 }

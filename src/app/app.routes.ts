@@ -15,6 +15,8 @@ import { authGuard } from './guards/auth.guard';
 import { adminGuard } from './guards/admin.guard';
 import { UsersComponent } from './pages/admin/side-bar/users/users/users.component';
 import { AdministrateurComponent } from './pages/admin/side-bar/users/administrateur/administrateur.component';
+import { UsersBanniComponent } from './pages/admin/side-bar/users/users-banni/users-banni.component';
+import { RoleUsersComponent } from './pages/admin/side-bar/users/role-users/role-users.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -46,7 +48,8 @@ export const routes: Routes = [
       { path: 'sociaux', component: SociauxComponent },
       { path: 'users', component: UsersComponent },
       { path: 'administrateur', component: AdministrateurComponent },
-      // { path: 'usersBanni', component: AdministrateurComponent },
+      { path: 'usersBan', component: UsersBanniComponent },
+      { path: 'roleUsers', component: RoleUsersComponent },
     ],
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

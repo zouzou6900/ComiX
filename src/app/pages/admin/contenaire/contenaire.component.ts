@@ -9,6 +9,8 @@ import { EvenementsComponent } from '../side-bar/dashboard/evenements/evenements
 import { SociauxComponent } from '../side-bar/dashboard/sociaux/sociaux.component';
 import { UsersComponent } from '../side-bar/users/users/users.component';
 import { AdministrateurComponent } from '../side-bar/users/administrateur/administrateur.component';
+import { UsersBanniComponent } from '../side-bar/users/users-banni/users-banni.component';
+import { RoleUsersComponent } from '../side-bar/users/role-users/role-users.component';
 
 @Component({
   selector: 'app-contenaire',
@@ -22,6 +24,8 @@ import { AdministrateurComponent } from '../side-bar/users/administrateur/admini
     SociauxComponent,
     UsersComponent,
     AdministrateurComponent,
+    UsersBanniComponent,
+    RoleUsersComponent,
   ],
   templateUrl: './contenaire.component.html',
   styleUrl: './contenaire.component.scss',
@@ -36,11 +40,9 @@ export class ContenaireComponent {
     const segments = url.split('/');
     return segments[segments.length - 1];
   }
-
   ngOnInit() {
     this.startTimer();
   }
-
   startTimer() {
     interval(1000).subscribe(() => {
       this.dateActuelle = new Date();
@@ -49,7 +51,6 @@ export class ContenaireComponent {
   capitalizeFirstLetter(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
-
   isRouteDashboard(): boolean {
     return this.router.url === '/admin/dashboard';
   }
@@ -67,5 +68,14 @@ export class ContenaireComponent {
   }
   isRouteUsers(): boolean {
     return this.router.url === '/admin/users';
+  }
+  isRouteAdministrateur(): boolean {
+    return this.router.url === '/admin/administrateur';
+  }
+  isRouteUsersBan(): boolean {
+    return this.router.url === '/admin/usersBan';
+  }
+  isRouteRoleUsers(): boolean {
+    return this.router.url === '/admin/roleUsers';
   }
 }
