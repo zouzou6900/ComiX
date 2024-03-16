@@ -18,9 +18,10 @@ import { UsersBanniComponent } from './pages/admin/side-bar/users/users-banni/us
 import { RoleUsersComponent } from './pages/admin/side-bar/users/role-users/role-users.component';
 import { ListUsersComponent } from './pages/admin/side-bar/users/list-users/list-users.component';
 import { CheckAnnouncesComponent } from './pages/admin/side-bar/check-announces/check-announces.component';
+import { LoginGuard } from './guards/login.guard';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
   { path: 'register', component: RegisterComponent },
   {
     // redirige les requêtes de localhost:4200/ vers localhost:4200/home

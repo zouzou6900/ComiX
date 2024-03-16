@@ -126,6 +126,20 @@
         "zip_code": "7530"
       },
       "id": "Z9Nt4T2"
+    },
+    {
+      "firstname": "Steve",
+      "lastname": "Amissi",
+      "nickname": "dddd",
+      "email": "donkeyhtv@gmail.com",
+      "password": "gggggggg",
+      "address": {
+        "street": "grezge",
+        "number": "4",
+        "city": "Tournai",
+        "zip_code": 7530
+      },
+      "id": "XHYk5VM"
     }
   ]
 }

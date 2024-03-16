@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { User } from "../interfaces/auth";
-import { BehaviorSubject, Observable, map } from "rxjs";
+import { BehaviorSubject, Observable, catchError, map } from "rxjs";
 import { Router } from "@angular/router";
 
 @Injectable({
@@ -21,24 +21,38 @@ export class AuthService {
 
   loginUser(email: string, password: string): Observable<User> {
     return this.http.post<User>(`${this.baseUrl}/auth/login`, { email, password }).pipe(
-      map((user) => {
-        if (user) {
-          sessionStorage.setItem("email", email);
-          sessionStorage.setItem("nickname", user.nickname);
-          this.nicknameSubject.next(user.nickname);
-          return user;
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          throw new Error("Email ou mot de passe incorrect");
         } else {
-          throw new Error("Invalid credentials");
+          // Erreur serveur
+          console.error(error);
+          throw new Error("Une erreur est survenue. Veuillez réessayer ultérieurement.");
         }
+      }),
+      map((user) => {
+        sessionStorage.setItem("email", user.email);
+        sessionStorage.setItem("nickname", user.nickname);
+        return user;
       })
     );
   }
+  
 
   getUserByEmail(email: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`);
   }
 
   isLoggedIn(): boolean {
+    // Vérifie si l'email de l'utilisateur est présent dans le sessionStorage
     return !!sessionStorage.getItem("email");
+  }
+
+  getUserNickname(): string | null {
+    const nicknameFromStorage = sessionStorage.getItem("nickname");
+    if (nicknameFromStorage) {
+      return nicknameFromStorage;
+    }
+    return null;
   }
 }

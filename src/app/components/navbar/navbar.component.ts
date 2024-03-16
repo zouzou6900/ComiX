@@ -21,9 +21,7 @@ export class NavbarComponent {
 
   ngOnInit() {
     //this.nickname = sessionStorage.getItem("nickname"); (ne refresh pas la page après la connexion ;( !)
-    this.authService.nickname$.subscribe((nickname) => {
-      this.nickname = nickname;
-    });
+    this.nickname = this.authService.getUserNickname();
   }
   logOut() {
     sessionStorage.clear();
