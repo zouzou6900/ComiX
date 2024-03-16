@@ -19,9 +19,12 @@ import { RoleUsersComponent } from './pages/admin/side-bar/users/role-users/role
 import { ListUsersComponent } from './pages/admin/side-bar/users/list-users/list-users.component';
 import { CheckAnnouncesComponent } from './pages/admin/side-bar/check-announces/check-announces.component';
 import { LoginGuard } from './guards/login.guard';
+import { AnnounceDetailsComponent } from './pages/announce-details/announce-details.component';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+  { path: 'login', component: LoginComponent, 
+  // si user déjà connected, on l'envoie vers /home
+  canActivate: [LoginGuard] },
   { path: 'register', component: RegisterComponent },
   {
     // redirige les requêtes de localhost:4200/ vers localhost:4200/home
@@ -36,6 +39,8 @@ export const routes: Routes = [
     // si user connected, on affiche la page, sinon on le redirige vers la page de login
     canActivate: [authGuard],
   },
+  { path: 'announce/:id', component: AnnounceDetailsComponent, canActivate: [authGuard], },
+  
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   {
