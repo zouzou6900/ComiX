@@ -1,8 +1,13 @@
-<div id="quick-search-container">
+<app-header>
+  
+</app-header>
+
+<div class="bg-red">
+  <div id="quick-search-container">
   
   <div class="quick-search">
   <label for="genre">Genre:</label>
-  <select [(ngModel)]="selectedGenre">
+  <select name="genre" id="genre" [(ngModel)]="selectedGenre">
     <option value="">Tous les genres</option>
     @for(genre of genres; track genre){
       <option value="{{ genre }}">{{ genre }}</option>
@@ -10,20 +15,22 @@
    
   </select>
   <label for="city">Ville:</label>
-  <input type="text" [(ngModel)]="selectedCity" (input)="filterCity($event)">
+  <input name="city" id="city" type="text" [(ngModel)]="selectedCity" (input)="filterCity($event)">
   <div class="suggestions-block">
     @for(city of citySuggestions; track city){
       <span (click)="selectCity(city)" class="suggestions-link">{{ city }}</span>
     }
   </div>
-  <select [(ngModel)]="selectedEscortOrPrivate">
-    <option value="">Tout</option>
-    <option value="escort">Escort</option>
-    <option value="private">Private</option>
+  <label for="privateEscort">Je préfère: </label>
+  <select name="privateEscort" id="privateEscort" [(ngModel)]="selectedEscortOrPrivate">
+    <option value="">Peu importe</option>
+    <option value="escort">Recevoir chez moi</option>
+    <option value="private">Me déplacer</option>
   </select>
 
   <button (click)="filterResults()">Filtrer</button>
 
+</div>
 </div>
 </div>
 

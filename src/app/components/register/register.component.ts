@@ -5,11 +5,12 @@ import { passwordMatchValidator } from "../../validators/password-match.directiv
 import { AuthService } from "../../services/auth.service";
 import { User } from "../../interfaces/auth";
 import { emailValidator } from "../../validators/email-validator";
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, HeaderComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
@@ -20,6 +21,7 @@ export class RegisterComponent {
       lastname: ["", [Validators.required]],
       nickname: ["", [Validators.required, Validators.pattern("^[a-zA-Z]+$")]],
       email: ["", [Validators.required, Validators.email, emailValidator]],
+      niss: ["", [Validators.required, Validators.maxLength(15)]],
       password: ["", [Validators.required, Validators.minLength(8)]],
       confirmPassword: ["", Validators.required],
       address: this.fb.group({
@@ -58,6 +60,9 @@ export class RegisterComponent {
   }
   get street() {
     return this.registerForm.controls["address"].get("street");
+  }
+  get niss() {
+    return this.registerForm.controls['niss'];
   }
 
   get number() {

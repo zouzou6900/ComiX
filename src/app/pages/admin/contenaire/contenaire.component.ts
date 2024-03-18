@@ -13,6 +13,7 @@ import { UsersBanniComponent } from '../side-bar/users/users-banni/users-banni.c
 import { RoleUsersComponent } from '../side-bar/users/role-users/role-users.component';
 import { ListUsersComponent } from '../side-bar/users/list-users/list-users.component';
 import { CheckAnnouncesComponent } from '../side-bar/check-announces/check-announces.component';
+import { HeaderComponent } from '../../../components/header/header.component';
 
 @Component({
   selector: 'app-contenaire',
@@ -30,6 +31,7 @@ import { CheckAnnouncesComponent } from '../side-bar/check-announces/check-annou
     UsersBanniComponent,
     RoleUsersComponent,
     CheckAnnouncesComponent,
+    HeaderComponent
   ],
   templateUrl: './contenaire.component.html',
   styleUrl: './contenaire.component.scss',

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { User } from "../interfaces/auth";
-import { BehaviorSubject, Observable, catchError, map } from "rxjs";
+import { BehaviorSubject, Observable, catchError, map, tap, throwError } from "rxjs";
 import { Router } from "@angular/router";
 
 @Injectable({
@@ -20,24 +20,26 @@ export class AuthService {
   }
 
   loginUser(email: string, password: string): Observable<User> {
-    return this.http.post<User>(`${this.baseUrl}/auth/login`, { email, password }).pipe(
-      catchError((error: HttpErrorResponse) => {
-        if (error.status === 401) {
-          throw new Error("Email ou mot de passe incorrect");
-        } else {
-          // Erreur serveur
-          console.error(error);
-          throw new Error("Une erreur est survenue. Veuillez réessayer ultérieurement.");
-        }
-      }),
-      map((user) => {
-        sessionStorage.setItem("email", user.email);
-        sessionStorage.setItem("nickname", user.nickname);
-        return user;
-      })
-    );
+    return this.http
+      .post<User>(`${this.baseUrl}/auth/login`, { email, password })
+      .pipe(
+        tap((user) => {
+          try {
+            localStorage.setItem("token", user.token.value);
+            localStorage.setItem("isadmin", user.token.isadmin); // Access token.value within try-catch
+          } catch (error) {
+            console.error("Error accessing token value:", error);
+          }
+          sessionStorage.setItem("email", user.email);
+          sessionStorage.setItem("nickname", user.nickname);
+        }),
+        catchError((error) => {
+          // Handle login errors here
+          console.error("Login error:", error);
+          return throwError(error);
+        })
+      );
   }
-  
 
   getUserByEmail(email: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/users?email=${email}`);

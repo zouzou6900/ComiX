@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../interfaces/quick-search';
 import { Router } from '@angular/router';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { HeaderComponent } from '../../components/header/header.component';
 
 
 
 @Component({
   selector: 'app-quick-search',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NavbarComponent, HeaderComponent],
   templateUrl: './announces.component.html',
   styleUrl: './announces.component.scss'
 })
@@ -45,7 +47,6 @@ export class AnnouncesComponent  implements OnInit{
   }
   
   filterResults() {
-    
     this.filteredResults = this.results.filter(result => {
       const genreMatch = this.selectedGenre === '' || result.userProfile.genre === this.selectedGenre;
       const cityMatch = this.selectedCity === '' || result.address.city.toLowerCase().includes(this.selectedCity.toLowerCase());

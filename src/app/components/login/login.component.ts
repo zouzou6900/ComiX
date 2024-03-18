@@ -23,9 +23,12 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ) {console.log("Utilisateur connecté : ", this.authService.isLoggedIn());}
+  ) {}
 
-  
+  ngOnInit(): void {
+    
+  }
+
   get email() {
     return this.loginForm.controls["email"];
   }
@@ -37,14 +40,12 @@ export class LoginComponent {
   loginUser() {
     const email = this.loginForm.value.email!;
     const password = this.loginForm.value.password!;
-    this.authService.loginUser(email, password).subscribe(() => {
-      window.location.reload();
-      setTimeout(() => {
-        this.router.navigate(['/home']);
-      }, 1000); // Délai de 1 seconde
-    },
+    this.authService.loginUser(email, password).subscribe(
+      () => {
+        this.router.navigate(['/home']); // Navigate to home after successful login
+      },
       (error) => {
-        window.alert(error); // Affiche l'erreur en cas d'échec de connexion
+        window.alert(error); // Display error
       }
     );
   }

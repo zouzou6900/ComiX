@@ -1,17 +1,23 @@
-#quick-search-container {
+
+  #quick-search-container {
   width: 100%;
   display: flex;
   justify-content: center;
   background-color: #1b1b1b;
   color: white;
   padding: 20px;
+  .quick-search{
+    max-width:1280px;
+    display: flex;
+    justify-content: space-between;
+  }
   .suggestions-block{
-    display:block;
     .suggestions-link{
       cursor: pointer;
     }
   }
 }
+
 
 
 .announces-container {

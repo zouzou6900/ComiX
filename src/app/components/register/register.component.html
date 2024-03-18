@@ -1,3 +1,7 @@
+<app-header>
+  
+</app-header>
+
 <div class="container">
   <form
     class="register-component"
@@ -80,6 +84,29 @@
         } @if(email.errors?.['email']){
         <div>Email invalide</div>
         }
+      </small>
+      }
+    </div>
+
+    <div class="field">
+      <label for="niss">NISS</label>
+      <input
+        type="string"
+        id="niss"
+        name="niss"
+        formControlName="niss"
+        required
+        minlength="8"
+        placeholder="Numéro national"
+      />
+      @if(niss.invalid && niss.dirty || niss.touched){
+        
+      <small class="error">
+        @if(niss.errors?.['required']){
+        <div>NISS obligatoire</div>
+        }  @if(password.errors?.['maxlength']){
+          <div>NISS trop long</div>
+          }
       </small>
       }
     </div>

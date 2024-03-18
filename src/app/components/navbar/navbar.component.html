@@ -1,9 +1,10 @@
+<nav >
 <div class="nav-link">
-  <a routerLink="/home"> <i class="fa-solid fa-house"></i> Accueil </a>
+  <a routerLink="/home" routerLinkActive="active"> <i class="fa-solid fa-house"></i> Accueil </a>
 </div>
 @if(isLoggedIn()){
 <div class="nav-link">
-  <a routerLink="/announces"> <i class="fa-solid fa-id-badge"></i> Annonces </a>
+  <a routerLink="/announces" routerLinkActive="active"> <i class="fa-solid fa-id-badge"></i> Annonces </a>
 </div>
 } @else {
 <div class="nav-link">
@@ -13,7 +14,7 @@
 </div>
 } @if(!isLoggedIn()){
 <div class="nav-link">
-  <a routerLink="/login"
+  <a routerLink="/login" routerLinkActive="active"
     ><i class="fa-solid fa-user"></i>
 
     <span> Se connecter</span>
@@ -21,7 +22,7 @@
 </div>
 } @if(isLoggedIn()){
 <div class="nav-link">
-  <a routerLink="/admin/dashboard"
+  <a routerLink="/admin/dashboard" routerLinkActive="active"
     ><i class="fa-solid fa-user"></i>
     @if(nickname){
     <span> Bonjour {{ nickname }}</span>
@@ -30,10 +31,10 @@
 </div>
 } @if(isLoggedIn()){
 <div class="nav-link">
-  <a routerLink="/admin/dashboard"><i class="fa-solid fa-gear"></i></a>
+  <a routerLink="/admin/dashboard" routerLinkActive="active"><i class="fa-solid fa-gear"></i></a>
 </div>
 <div class="nav-link">
-  <a routerLink="/admin/dashboard"><i class="fa-solid fa-bell"></i></a>
+  <a routerLink="/admin/dashboard" routerLinkActive="active"><i class="fa-solid fa-bell"></i></a>
 </div>
 } @if(isLoggedIn()){
 <div class="nav-link">
@@ -43,6 +44,7 @@
   </a>
 </div>
 }
+</nav>
 
 <ng-template #logoutModal let-modal>
   <div class="modal-header">

@@ -1,17 +1,20 @@
 import { Component } from "@angular/core";
-import { Router, RouterLink } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { AuthService } from "../../services/auth.service";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-navbar",
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: "./navbar.component.html",
   styleUrl: "./navbar.component.scss",
 })
 export class NavbarComponent {
+
   nickname: string | null = null;
+  navClass = 'default-header';
 
   constructor(
     private router: Router,
@@ -23,8 +26,12 @@ export class NavbarComponent {
     //this.nickname = sessionStorage.getItem("nickname"); (ne refresh pas la page après la connexion ;( !)
     this.nickname = this.authService.getUserNickname();
   }
+
+  
+
   logOut() {
     sessionStorage.clear();
+    localStorage.clear();
   }
   logIn() {
     this.router.navigate(["/login"]);
@@ -50,4 +57,8 @@ export class NavbarComponent {
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
+
+  
+  
+  
 }

@@ -1,40 +1,14 @@
-.nav-link {
-  display: inline-block;
-  &:hover {
-    color: #1b1b1b;
+nav{
+  display:flex;
+  align-items: center;
+  height:100%;
+  .nav-link a{
+    color:#fff;
+    text-decoration: none;
+    padding:10px;
+    &:hover{
+      color: #ff004c;
+      cursor:pointer;
+    }
   }
-}
-a {
-  color: white;
-  font-size: 20px;
-  margin-left: 20px;
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
-  &:hover {
-    color: #1b1b1b;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-  }
-}
-button {
-  color: white;
-  font-size: 20px;
-  margin-left: 20px;
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
-  &:hover {
-    color: #1b1b1b;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-  }
-}
-.login-block {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: inline-block;
-  background-color: white;
-  color: #1b1b1b;
-  padding: 25px;
 }

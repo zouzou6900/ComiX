@@ -2,12 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserAnnounce } from '../../interfaces/announce-details';
 import { AnnouncesService } from '../../services/announces.service';
+import { HeaderComponent } from '../../components/header/header.component';
 
 
 @Component({
   selector: 'app-announce-details',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent],
   templateUrl: './announce-details.component.html',
   styleUrl: './announce-details.component.scss'
 })
