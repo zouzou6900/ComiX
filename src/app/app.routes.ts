@@ -20,6 +20,7 @@ import { ListUsersComponent } from './pages/admin/side-bar/users/list-users/list
 import { CheckAnnouncesComponent } from './pages/admin/side-bar/check-announces/check-announces.component';
 import { LoginGuard } from './guards/login.guard';
 import { AnnounceDetailsComponent } from './pages/announce-details/announce-details.component';
+import { MyAccountComponent } from './pages/my-account/my-account.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent, 
@@ -33,6 +34,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   { path: 'home', component: HomeComponent },
+  { path: 'myaccount', component: MyAccountComponent },
   {
     path: 'announces',
     component: AnnouncesComponent,

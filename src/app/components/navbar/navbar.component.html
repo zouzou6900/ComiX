@@ -1,4 +1,4 @@
-<nav >
+<nav [class.scrolled]="isScrolled">
 <div class="nav-link">
   <a routerLink="/home" routerLinkActive="active"> <i class="fa-solid fa-house"></i> Accueil </a>
 </div>
@@ -22,13 +22,14 @@
 </div>
 } @if(isLoggedIn()){
 <div class="nav-link">
-  <a routerLink="/admin/dashboard" routerLinkActive="active"
+  <a routerLink="/myaccount" routerLinkActive="active"
     ><i class="fa-solid fa-user"></i>
     @if(nickname){
     <span> Bonjour {{ nickname }}</span>
     } @else { Bienvenue }</a
   >
 </div>
+
 } @if(isLoggedIn()){
 <div class="nav-link">
   <a routerLink="/admin/dashboard" routerLinkActive="active"><i class="fa-solid fa-gear"></i></a>
