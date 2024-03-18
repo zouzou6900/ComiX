@@ -1,49 +1,59 @@
-<nav >
-<div class="nav-link">
-  <a routerLink="/home" routerLinkActive="active"> <i class="fa-solid fa-house"></i> Accueil </a>
-</div>
-@if(isLoggedIn()){
-<div class="nav-link">
-  <a routerLink="/announces" routerLinkActive="active"> <i class="fa-solid fa-id-badge"></i> Annonces </a>
-</div>
-} @else {
-<div class="nav-link">
-  <a routerLink (click)="openModal(haveToConnectModal)"
-    ><i class="fa-solid fa-id-badge"></i> Annonces</a
-  >
-</div>
-} @if(!isLoggedIn()){
-<div class="nav-link">
-  <a routerLink="/login" routerLinkActive="active"
-    ><i class="fa-solid fa-user"></i>
+<nav>
+  <div class="nav-link">
+    <a routerLink="/home" routerLinkActive="active">
+      <i class="fa-solid fa-house"></i> Accueil
+    </a>
+  </div>
+  @if(isLoggedIn()){
+  <div class="nav-link">
+    <a routerLink="/announces" routerLinkActive="active">
+      <i class="fa-solid fa-id-badge"></i> Annonces
+    </a>
+  </div>
+  } @else {
+  <div class="nav-link">
+    <a routerLink (click)="openModal(haveToConnectModal)"
+      ><i class="fa-solid fa-id-badge"></i> Annonces</a
+    >
+  </div>
+  } @if(!isLoggedIn()){
+  <div class="nav-link">
+    <a routerLink="/login" routerLinkActive="active"
+      ><i class="fa-solid fa-user"></i>
 
-    <span> Se connecter</span>
-  </a>
-</div>
-} @if(isLoggedIn()){
-<div class="nav-link">
-  <a routerLink="/admin/dashboard" routerLinkActive="active"
-    ><i class="fa-solid fa-user"></i>
-    @if(nickname){
-    <span> Bonjour {{ nickname }}</span>
-    } @else { Bienvenue }</a
-  >
-</div>
-} @if(isLoggedIn()){
-<div class="nav-link">
-  <a routerLink="/admin/dashboard" routerLinkActive="active"><i class="fa-solid fa-gear"></i></a>
-</div>
-<div class="nav-link">
-  <a routerLink="/admin/dashboard" routerLinkActive="active"><i class="fa-solid fa-bell"></i></a>
-</div>
-} @if(isLoggedIn()){
-<div class="nav-link">
-  <a (click)="openModal(logoutModal)"
-    ><i class="fa fa-power-off"></i>
-    Se déconnecter
-  </a>
-</div>
-}
+      <span> Se connecter</span>
+    </a>
+  </div>
+  } @if(isLoggedIn()){
+  <div class="nav-link">
+    <a routerLink="/admin/dashboard" routerLinkActive="active"
+      ><i class="fa-solid fa-user"></i>
+      @if(nickname){
+      <span> Bonjour {{ nickname }}</span>
+      } @else { Bienvenue }</a
+    >
+  </div>
+  } @if(isLoggedIn() && isAdmin() === 'true'){
+
+  <div class="nav-link">
+    <a routerLink="/admin/dashboard" routerLinkActive="active"
+      ><i class="fa-solid fa-gear"></i
+    ></a>
+  </div>
+
+  <div class="nav-link">
+    <a routerLink="/admin/dashboard" routerLinkActive="active"
+      ><i class="fa-solid fa-bell"></i
+    ></a>
+  </div>
+  } @if(isLoggedIn()){
+  <div class="nav-link">
+    <a (click)="openModal(logoutModal)"
+      ><i class="fa fa-power-off"></i>
+      Se déconnecter
+    </a>
+  </div>
+  }
 </nav>
 
 <ng-template #logoutModal let-modal>

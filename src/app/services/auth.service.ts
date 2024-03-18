@@ -1,14 +1,25 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
-import { User } from "../interfaces/auth";
-import { BehaviorSubject, Observable, catchError, map, tap, throwError } from "rxjs";
-import { Router } from "@angular/router";
+import { Injectable } from '@angular/core';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
+import { User } from '../interfaces/auth';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  map,
+  tap,
+  throwError,
+} from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = "http://localhost:3333";
+  private baseUrl = 'http://localhost:3333';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -25,17 +36,17 @@ export class AuthService {
       .pipe(
         tap((user) => {
           try {
-            localStorage.setItem("token", user.token.value);
-            localStorage.setItem("isadmin", user.token.isadmin); // Access token.value within try-catch
+            localStorage.setItem('token', user.token.value);
+            localStorage.setItem('isadmin', user.token.isadmin); // Access token.value within try-catch
           } catch (error) {
-            console.error("Error accessing token value:", error);
+            console.error('Error accessing token value:', error);
           }
-          sessionStorage.setItem("email", user.email);
-          sessionStorage.setItem("nickname", user.nickname);
+          sessionStorage.setItem('email', user.email);
+          sessionStorage.setItem('nickname', user.nickname);
         }),
         catchError((error) => {
           // Handle login errors here
-          console.error("Login error:", error);
+          console.error('Login error:', error);
           return throwError(error);
         })
       );
@@ -47,11 +58,11 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     // Vérifie si l'email de l'utilisateur est présent dans le sessionStorage
-    return !!sessionStorage.getItem("email");
+    return !!sessionStorage.getItem('email');
   }
 
   getUserNickname(): string | null {
-    const nicknameFromStorage = sessionStorage.getItem("nickname");
+    const nicknameFromStorage = sessionStorage.getItem('nickname');
     if (nicknameFromStorage) {
       return nicknameFromStorage;
     }
