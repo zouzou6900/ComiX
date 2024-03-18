@@ -21,6 +21,7 @@ import { CheckAnnouncesComponent } from './pages/admin/side-bar/check-announces/
 import { LoginGuard } from './guards/login.guard';
 import { AnnounceDetailsComponent } from './pages/announce-details/announce-details.component';
 import { MyAccountComponent } from './pages/my-account/my-account.component';
+import { AllAnnouncesComponent } from './pages/all-announces/all-announces.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent, 
@@ -40,6 +41,10 @@ export const routes: Routes = [
     component: AnnouncesComponent,
     // si user connected, on affiche la page, sinon on le redirige vers la page de login
     canActivate: [authGuard],
+  },
+  {
+    path: 'all-announces',
+    component: AllAnnouncesComponent,
   },
   { path: 'announce/:id', component: AnnounceDetailsComponent, canActivate: [authGuard], },
   
