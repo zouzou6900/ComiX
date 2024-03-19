@@ -52,7 +52,7 @@ export const routes: Routes = [
         component: MyAdvertiserProfilComponent
       },
       {
-        path: 'my-ad',
+        path: 'my-announce',
         component: MyAdComponent
       }
     ]

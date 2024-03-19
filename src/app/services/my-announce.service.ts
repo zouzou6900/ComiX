@@ -5,32 +5,32 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class userProfileService {
+export class MyAnnounceService {
 
   private readonly apiUrl = 'http://localhost:3333/api/user/';
 
   constructor(private httpClient: HttpClient) {}
 
-  getAdvertiserData() {
+  getPersonalData() {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
 
-    return this.httpClient.get(this.apiUrl + localStorage.getItem('userid') +"/profile" , {
+    return this.httpClient.get(this.apiUrl + localStorage.getItem('userid')+ "/announce", {
       headers
     });
   }
 
-  updateAdvertiserData(data: any): Observable<any> {
+  updatePersonalData(data: any): Observable<any> {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userid');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
-      'Access-Control-Allow-Origin': 'http://localhost:4200'
+      //'Access-Control-Allow-Origin': 'http://localhost:3333'
     });
     console.log('Sending data:', data);
-    return this.httpClient.patch(this.apiUrl + userId + '/profile', data, { headers });
+    return this.httpClient.patch(this.apiUrl + userId + "/announce", data, { headers });
   }
 
 }

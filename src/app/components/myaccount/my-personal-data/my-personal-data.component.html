@@ -34,7 +34,7 @@
     <label for="zip_code">Code postal :</label>
     <input type="number" name="zip_code" id="zip_code" [(ngModel)]="formData.address.zip_code" required>
     <br>
-    <button type="submit">Valider</button>
+    <button type="submit" (click)="onSubmit(formData)">Valider</button>
   </form>
 </div>
 }

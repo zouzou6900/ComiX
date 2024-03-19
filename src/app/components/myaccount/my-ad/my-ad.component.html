@@ -1,1 +1,33 @@
-<p>my-ad works!</p>
+<h1>Gérer mon annonce</h1>
+
+<p>Titre : {{ personalData?.announce?.title }}</p>
+<p>Description : {{ personalData?.announce?.description }}</p>
+<p>Privé : {{ personalData?.announce?.private }}</p>
+<p>Escorte : {{ personalData?.announce?.escort }}</p>
+
+<button (click)="toggleEdit()">Modifier</button>
+@if(isEditing){
+<div id="edit-form">
+  <h2>Modifier mes données</h2>
+  <form (ngSubmit)="onSubmit(formData)" #f="ngForm">
+    <label for="title">Titre :</label>
+    <input type="title" name="title" id="title" [(ngModel)]="formData.title" required>
+    <br>
+    <label for="description">Description :</label>
+    <textarea type="text" name="description" id="description" [(ngModel)]="formData.nickname" required></textarea>
+    <br>
+    <label for="escort">Je me déplace :</label>  
+    <select name="escort" id="escort">
+        <option value="oui">Oui</option>
+        <option value="non">Non</option>
+    </select>
+    <label for="private">Je reçois en privé :</label>  
+    <select name="private" id="private">
+        <option value="oui">Oui</option>
+        <option value="non">Non</option>
+    </select>
+    <h2>Table des pratiques</h2>
+    <button type="submit" (click)="onSubmit(formData)">Valider</button>
+  </form>
+</div>
+}
