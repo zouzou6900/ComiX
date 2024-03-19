@@ -1,0 +1,22 @@
+.projet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h2 {
+    color: rgb(237, 102, 102);
+    margin-top: 5px;
+}
+
+h4 {
+    background-color: rgb(237, 102, 102);
+    border-radius: 4px;
+    padding: 2px;
+    color: white;
+}
+
+a {
+    margin-bottom: 5px;
+}
