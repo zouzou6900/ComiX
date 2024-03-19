@@ -1,4 +1,4 @@
-<nav>
+<nav [class.scrolled]="isScrolled">
   <div class="nav-link">
     <a routerLink="/home" routerLinkActive="active">
       <i class="fa-solid fa-house"></i> Accueil
@@ -6,9 +6,8 @@
   </div>
   @if(isLoggedIn()){
   <div class="nav-link">
-    <a routerLink="/announces" routerLinkActive="active">
-      <i class="fa-solid fa-id-badge"></i> Annonces
-    </a>
+    <a routerLink="/allannounces"><i class="fa-solid fa-id-badge"></i> Annonces</a
+    >
   </div>
   } @else {
   <div class="nav-link">
@@ -16,7 +15,9 @@
       ><i class="fa-solid fa-id-badge"></i> Annonces</a
     >
   </div>
-  } @if(!isLoggedIn()){
+  }
+  
+  @if(!isLoggedIn()){
   <div class="nav-link">
     <a routerLink="/login" routerLinkActive="active"
       ><i class="fa-solid fa-user"></i>
@@ -26,7 +27,7 @@
   </div>
   } @if(isLoggedIn()){
   <div class="nav-link">
-    <a routerLink="/admin/dashboard" routerLinkActive="active"
+    <a routerLink="/myaccount" routerLinkActive="active"
       ><i class="fa-solid fa-user"></i>
       @if(nickname){
       <span> Bonjour {{ nickname }}</span>
@@ -40,13 +41,13 @@
       ><i class="fa-solid fa-gear"></i
     ></a>
   </div>
-
+  }
   <div class="nav-link">
     <a routerLink="/admin/dashboard" routerLinkActive="active"
       ><i class="fa-solid fa-bell"></i
     ></a>
   </div>
-  } @if(isLoggedIn()){
+   @if(isLoggedIn()){
   <div class="nav-link">
     <a (click)="openModal(logoutModal)"
       ><i class="fa fa-power-off"></i>
@@ -106,7 +107,7 @@
     <button
       type="button"
       class="btn btn-danger"
-      routerLink="login"
+      routerLink="/login"
       (click)="modal.dismiss('close')"
     >
       Se connecter

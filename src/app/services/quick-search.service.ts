@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { User } from '../interfaces/quick-search';
 
@@ -7,11 +7,17 @@ import { User } from '../interfaces/quick-search';
   providedIn: 'root',
 })
 export class QuickSearchService {
-  baseUrl = 'http://localhost:3333/user'; // Define base URL for user data
+  baseUrl = 'http://localhost:3000/user/';
+  token: string | null = localStorage.getItem('token');
 
   constructor(private http: HttpClient) {}
 
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.baseUrl);
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this.token}`
+    );
+    const options = { headers };
+    return this.http.get<User[]>(this.baseUrl, options);
   }
 }

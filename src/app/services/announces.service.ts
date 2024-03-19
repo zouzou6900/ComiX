@@ -12,16 +12,14 @@ export class AnnouncesService {
     throw new Error('Method not implemented.');
   }
 
-  base_url = 'http://localhost:3000/user';
-
+  base_url = 'http://localhost:3000/api/user';
   constructor(private httpClient: HttpClient) {}
-
   getUser(userId: number): Observable<User> {
     return this.httpClient.get<User>(`${this.base_url}/${userId}`);
   }
 
   getUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.base_url);
+    return this.httpClient.get<User[]>(`${this.base_url}/all`);
   }
 
   getCombinedUserData(id: number): Observable<UserAnnounce> {

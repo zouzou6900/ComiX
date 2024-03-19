@@ -1,7 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+  HttpRequest,
+} from '@angular/common/http';
 import { User } from '../interfaces/auth';
-import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  map,
+  tap,
+  throwError,
+} from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -26,7 +38,8 @@ export class AuthService {
         tap((user) => {
           try {
             localStorage.setItem('token', user.token.value);
-            localStorage.setItem('isadmin', user.token.isadmin); // Access token.value within try-catch
+            localStorage.setItem('isadmin', user.token.isadmin);
+            localStorage.setItem('userid', user.id);
           } catch (error) {
             console.error('Error accessing token value:', error);
           }
@@ -56,5 +69,20 @@ export class AuthService {
       return nicknameFromStorage;
     }
     return null;
+  }
+
+  getToken(): string | null {
+    const token = localStorage.getItem('token');
+    return token;
+  }
+
+  addTokenToHeaders(req: HttpRequest<any>): HttpRequest<any> {
+    const token = this.getToken();
+    if (token) {
+      return req.clone({
+        headers: req.headers.set('Authorization', `Bearer ${token}`),
+      });
+    }
+    return req;
   }
 }
