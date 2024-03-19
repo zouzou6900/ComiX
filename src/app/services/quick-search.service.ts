@@ -4,10 +4,10 @@ import { Observable } from 'rxjs/internal/Observable';
 import { User } from '../interfaces/quick-search';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuickSearchService {
-  baseUrl = 'http://localhost:3000/user'; // Define base URL for user data
+  baseUrl = 'http://localhost:3333/user'; // Define base URL for user data
 
   constructor(private http: HttpClient) {}
 
