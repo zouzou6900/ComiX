@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { HeaderComponent } from '../../../components/header/header.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-content',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent, RouterOutlet],
   templateUrl: './content.component.html',
   styleUrl: './content.component.scss',
 })
 export class ContentComponent {}
+
