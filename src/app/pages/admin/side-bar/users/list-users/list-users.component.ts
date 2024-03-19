@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserListService } from '../../../../../services/user-list.service';
+import { ListUser } from '../../../../../interfaces/list-user';
 
 @Component({
   selector: 'app-list-users',
@@ -9,13 +10,13 @@ import { UserListService } from '../../../../../services/user-list.service';
   styleUrl: './list-users.component.scss',
 })
 export class ListUsersComponent implements OnInit {
-  users: any[] = [];
+  users: ListUser[] = [];
 
   constructor(private userListService: UserListService) {}
 
   ngOnInit(): void {
     this.userListService.getAllUsers().subscribe(
-      (data: any[]) => {
+      (data: ListUser[]) => {
         this.users = data;
       },
       (error) => {
