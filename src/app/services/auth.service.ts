@@ -27,6 +27,7 @@ export class AuthService {
           try {
             localStorage.setItem("token", user.token.value);
             localStorage.setItem("isadmin", user.token.isadmin);
+            localStorage.setItem("userid", user.id);
           } catch (error) {
             console.error("Error accessing token value:", error);
           }

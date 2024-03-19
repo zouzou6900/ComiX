@@ -10,7 +10,6 @@ import { EvenementsComponent } from './pages/admin/side-bar/dashboard/evenements
 import { SociauxComponent } from './pages/admin/side-bar/dashboard/sociaux/sociaux.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { AnnouncesComponent } from './pages/announces/announces.component';
 import { authGuard } from './guards/auth.guard';
 import { adminGuard } from './guards/admin.guard';
 import { AdministrateurComponent } from './pages/admin/side-bar/users/administrateur/administrateur.component';
@@ -22,6 +21,10 @@ import { LoginGuard } from './guards/login.guard';
 import { AnnounceDetailsComponent } from './pages/announce-details/announce-details.component';
 import { MyAccountComponent } from './pages/my-account/my-account.component';
 import { AllAnnouncesComponent } from './pages/all-announces/all-announces.component';
+import { MyPersonalDataComponent } from './components/myaccount/my-personal-data/my-personal-data.component';
+import { MyAdComponent } from './components/myaccount/my-ad/my-ad.component';
+import { MyAdvertiserProfilComponent } from './components/myaccount/my-advertiser-profil/my-advertiser-profil.component';
+
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent, 
@@ -34,17 +37,31 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  { path: "myaccount", 
+    component: MyAccountComponent,
+    children: [
+      {
+        path: 'personal-data',
+        component: MyPersonalDataComponent
+      },
+      {
+        path: 'advertiser-profile',
+        component: MyAdvertiserProfilComponent
+      },
+      {
+        path: 'my-ad',
+        component: MyAdComponent
+      }
+    ]
+  },
+
   { path: 'home', component: HomeComponent },
   { path: 'myaccount', component: MyAccountComponent },
+
   {
-    path: 'announces',
-    component: AnnouncesComponent,
-    // si user connected, on affiche la page, sinon on le redirige vers la page de login
-    canActivate: [authGuard],
-  },
-  {
-    path: 'all-announces',
+    path: 'allannounces',
     component: AllAnnouncesComponent,
+    canActivate: [authGuard],
   },
   { path: 'announce/:id', component: AnnounceDetailsComponent, canActivate: [authGuard], },
   
