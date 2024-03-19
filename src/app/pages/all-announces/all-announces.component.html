@@ -1,0 +1,20 @@
+<app-header>
+</app-header>
+<div class="content">
+    
+    @for(announce of announces; track announce.id){
+    <div class="block-announce">
+    <h2>{{ announce.title }}</h2>
+    <p>{{ announce.description }}</p>
+    @if(announce.private){<p>{{ announce.private }}</p>}
+    @if(announce.escort){<p>{{ announce.escort }}</p>}
+    <!-- Si jamais besoin des prix sur les annonces
+    @if(announce.pricing['15min']){<p> {{ announce.pricing['15min'] }}</p>}
+    @if(announce.pricing['30min']){<p> {{ announce.pricing['30min'] }}</p>}
+    @if(announce.pricing['45min']){<p> {{ announce.pricing['45min'] }}</p>}
+    @if(announce.pricing['60min']){<p> {{ announce.pricing['60min'] }}</p>} 
+    -->
+    </div>
+    }
+    
+</div>

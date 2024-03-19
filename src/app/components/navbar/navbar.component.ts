@@ -13,8 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
   nickname: string | null = null;
+  isScrolled: boolean = false;
   isadmin: string | null = null;
-  navClass = 'default-header';
 
   constructor(
     private router: Router,
@@ -25,6 +25,11 @@ export class NavbarComponent {
   ngOnInit() {
     //this.nickname = sessionStorage.getItem("nickname"); (ne refresh pas la page après la connexion ;( !)
     this.nickname = this.authService.getUserNickname();
+    window.addEventListener('scroll', this.handleScroll.bind(this));
+  }
+
+  handleScroll() {
+    this.isScrolled = window.scrollY > 0; // Adjust threshold as needed
   }
 
   logOut() {
