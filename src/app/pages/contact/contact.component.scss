@@ -1,0 +1,44 @@
+.formContact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../assets/images/contact/contactGirl.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+label {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+input {
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px rgb(237, 102, 102);
+    margin-bottom: 15px;
+}
+
+.form-text-area {
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 1px 3px 5px rgb(237, 102, 102);
+    border: 5px black;
+    resize: none;
+    width: 350px;
+    height: 150px;
+    color: rgb(237, 102, 102);
+}
+
+button {
+    margin-bottom: 15px;
+    background-color: rgb(237, 102, 102);
+    border: none;
+}
+
+
+
+  
