@@ -8,18 +8,30 @@
     background-repeat: no-repeat;
 }
 
+.first {
+    margin-top: 85px;
+}
+
 label {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
     font-family: 'Times New Roman', Times, serif;
-    color: white;
+    color: rgb(255, 255, 255);
+    margin-bottom: 25px;
+}
+
+.label-content {
+    background-color: rgb(237, 102, 102, 0.8);
+    border-radius: 5px;
+    padding: 5px;
+    color: rgb(255, 255, 255);
 }
 
 input {
     border-radius: 10px;
     box-shadow: 1px 3px 5px rgb(237, 102, 102);
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .form-text-area {
@@ -34,7 +46,11 @@ input {
 }
 
 button {
-    margin-bottom: 15px;
+    margin-bottom: 85px;
     background-color: rgb(237, 102, 102);
     border: none;
+}
+
+.pushBottom {
+    margin-bottom: 175px;
 }
