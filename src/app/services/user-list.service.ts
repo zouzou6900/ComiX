@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListUser } from '../interfaces/list-user';
@@ -12,6 +12,12 @@ export class UserListService {
   constructor(private http: HttpClient) {}
 
   getAllUsers(): Observable<ListUser[]> {
-    return this.http.get<ListUser[]>(`${this.apiUrl}/all`);
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    return this.http.get<ListUser[]>(`${this.apiUrl}/all`, {
+      headers,
+    });
   }
 }
