@@ -1,8 +1,20 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest } from "@angular/common/http";
-import { User } from "../interfaces/auth";
-import { BehaviorSubject, Observable, catchError, map, tap, throwError } from "rxjs";
-import { Router } from "@angular/router";
+import { Injectable } from '@angular/core';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+  HttpRequest,
+} from '@angular/common/http';
+import { User } from '../interfaces/auth';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  map,
+  tap,
+  throwError,
+} from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -25,9 +37,9 @@ export class AuthService {
       .pipe(
         tap((user) => {
           try {
-            localStorage.setItem("token", user.token.value);
-            localStorage.setItem("isadmin", user.token.isadmin);
-            localStorage.setItem("userid", user.id);
+            localStorage.setItem('token', user.token.value);
+            localStorage.setItem('isadmin', user.token.isadmin);
+            localStorage.setItem('userid', user.id);
           } catch (error) {
             console.error('Error accessing token value:', error);
           }
@@ -60,17 +72,17 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
     return token;
   }
 
-    addTokenToHeaders(req: HttpRequest<any>): HttpRequest<any> {
-      const token = this.getToken();
-      if (token) {
-        return req.clone({
-          headers: req.headers.set('Authorization', `Bearer ${token}`)
-        });
-      }
-      return req;
+  addTokenToHeaders(req: HttpRequest<any>): HttpRequest<any> {
+    const token = this.getToken();
+    if (token) {
+      return req.clone({
+        headers: req.headers.set('Authorization', `Bearer ${token}`),
+      });
     }
+    return req;
+  }
 }

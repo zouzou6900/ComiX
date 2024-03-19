@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { User } from '../interfaces/quick-search';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuickSearchService {
   baseUrl = 'http://localhost:3000/user/';
@@ -13,7 +13,10 @@ export class QuickSearchService {
   constructor(private http: HttpClient) {}
 
   getAllUsers(): Observable<User[]> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this.token}`
+    );
     const options = { headers };
     return this.http.get<User[]>(this.baseUrl, options);
   }

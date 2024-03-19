@@ -5,19 +5,19 @@ import { User } from '../interfaces/user-announces';
 import { UserAnnounce } from '../interfaces/announce-details';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AnnouncesService {
   log(user: any) {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 
-  base_url = "http://localhost:3000/api/user";
-  constructor(private httpClient: HttpClient) {
-   }
-   getUser(userId: number): Observable<User> {
-    return this.httpClient.get<User>(`${this.base_url}/${userId}`); 
+  base_url = 'http://localhost:3000/api/user';
+  constructor(private httpClient: HttpClient) {}
+  getUser(userId: number): Observable<User> {
+    return this.httpClient.get<User>(`${this.base_url}/${userId}`);
   }
+
   getUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>(`${this.base_url}/all`);
   }
@@ -25,7 +25,4 @@ export class AnnouncesService {
   getCombinedUserData(id: number): Observable<UserAnnounce> {
     return this.httpClient.get<UserAnnounce>(`${this.base_url}/${id}`);
   }
-
-  
-  
 }
