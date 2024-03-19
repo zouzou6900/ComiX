@@ -7,7 +7,6 @@ import { SettingsComponent } from '../side-bar/dashboard/settings/settings.compo
 import { StatusComponent } from '../side-bar/dashboard/status/status.component';
 import { EvenementsComponent } from '../side-bar/dashboard/evenements/evenements.component';
 import { SociauxComponent } from '../side-bar/dashboard/sociaux/sociaux.component';
-import { UsersComponent } from '../side-bar/users/users/users.component';
 import { AdministrateurComponent } from '../side-bar/users/administrateur/administrateur.component';
 import { UsersBanniComponent } from '../side-bar/users/users-banni/users-banni.component';
 import { RoleUsersComponent } from '../side-bar/users/role-users/role-users.component';
@@ -25,13 +24,12 @@ import { HeaderComponent } from '../../../components/header/header.component';
     StatusComponent,
     EvenementsComponent,
     SociauxComponent,
-    UsersComponent,
     ListUsersComponent,
     AdministrateurComponent,
     UsersBanniComponent,
     RoleUsersComponent,
     CheckAnnouncesComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   templateUrl: './contenaire.component.html',
   styleUrl: './contenaire.component.scss',

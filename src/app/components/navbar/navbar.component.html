@@ -30,18 +30,18 @@
     <a routerLink="/myaccount" routerLinkActive="active"
       ><i class="fa-solid fa-user"></i>
       @if(nickname){
-      <span> {{ nickname }}</span>
+      <span> Bonjour {{ nickname }}</span>
       } @else { Bienvenue }</a
     >
   </div>
-  } 
+  } @if(isLoggedIn() && isAdmin() === 'true'){
 
   <div class="nav-link">
     <a routerLink="/admin/dashboard" routerLinkActive="active"
       ><i class="fa-solid fa-gear"></i
     ></a>
   </div>
-
+  }
   <div class="nav-link">
     <a routerLink="/admin/dashboard" routerLinkActive="active"
       ><i class="fa-solid fa-bell"></i

@@ -27,9 +27,12 @@ import { MyAdvertiserProfilComponent } from './components/myaccount/my-advertise
 
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent, 
-  // si user déjà connected, on l'envoie vers /home
-  canActivate: [LoginGuard] },
+  {
+    path: 'login',
+    component: LoginComponent,
+    // si user déjà connected, on l'envoie vers /home
+    canActivate: [LoginGuard],
+  },
   { path: 'register', component: RegisterComponent },
   {
     // redirige les requêtes de localhost:4200/ vers localhost:4200/home
@@ -63,14 +66,18 @@ export const routes: Routes = [
     component: AllAnnouncesComponent,
     canActivate: [authGuard],
   },
-  { path: 'announce/:id', component: AnnounceDetailsComponent, canActivate: [authGuard], },
-  
+  {
+    path: 'announce/:id',
+    component: AnnounceDetailsComponent,
+    canActivate: [authGuard],
+  },
+
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   {
     path: 'admin',
     component: AdminComponent,
-    canActivate: [authGuard],
+    canActivate: [adminGuard],
     children: [
       { path: 'dashboard', component: ContentComponent },
       { path: 'settings', component: SettingsComponent },
