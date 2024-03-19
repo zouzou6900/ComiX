@@ -27,7 +27,7 @@ export class UserDataService {
     const userId = localStorage.getItem('userid');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
+      //'Access-Control-Allow-Origin': 'http://localhost:3333'
     });
     console.log('Sending data:', data);
     return this.httpClient.patch(this.apiUrl + userId, data, { headers });

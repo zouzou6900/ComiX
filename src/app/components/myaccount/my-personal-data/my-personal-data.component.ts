@@ -51,11 +51,8 @@ export class MyPersonalDataComponent implements OnInit {
 
   onSubmit(formData: any) {
     const updateData = {
-      firstname: formData.firstname,
-      lastname: formData.lastname,
       nickname: formData.nickname,
       email: formData.email,
-      password: formData.password,
       address: {
         street: formData.address.street,
         number: formData.address.number,
