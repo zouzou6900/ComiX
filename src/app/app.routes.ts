@@ -24,7 +24,7 @@ import { AllAnnouncesComponent } from './pages/all-announces/all-announces.compo
 import { MyPersonalDataComponent } from './components/myaccount/my-personal-data/my-personal-data.component';
 import { MyAdComponent } from './components/myaccount/my-ad/my-ad.component';
 import { MyAdvertiserProfilComponent } from './components/myaccount/my-advertiser-profil/my-advertiser-profil.component';
-
+import { ThankComponent } from './pages/thank/thank.component';
 
 export const routes: Routes = [
   {
@@ -74,6 +74,7 @@ export const routes: Routes = [
 
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'thank', component: ThankComponent },
   {
     path: 'admin',
     component: AdminComponent,

@@ -1,85 +1,63 @@
 <div class="styleModal">
-    <form (ngSubmit)="onSubmit(formData)" #f="ngForm">
-        <legend>Compte</legend>
-        <div>
-            <label for="firstname">Prénom :</label>
-            <input type="text" id="firstname" name="firstname" [(ngModel)]="formData.firstname">
-          </div>
-        
-          <div>
-            <label for="lastname">Nom :</label>
-            <input type="text" id="lastname" name="lastname" [(ngModel)]="formData.lastname">
-          </div>
-        
-          <div>
-            <label for="nickname">Pseudo :</label>
-            <input type="text" id="nickname" name="nickname" [(ngModel)]="formData.nickname">
-          </div>
-        
-          <div>
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" [(ngModel)]="formData.email">
-          </div>
-        
-          <fieldset>
-            <legend>Adresse</legend>
-            <div>
-              <label for="street">Rue :</label>
-              <input type="text" id="street" name="street" [(ngModel)]="formData.address.street">
-            </div>
-        
-            <div>
-              <label for="number">Numéro :</label>
-              <input type="text" id="number" name="number" [(ngModel)]="formData.address.number">
-            </div>
-        
-            <div>
-              <label for="city">Ville :</label>
-              <input type="text" id="city" name="city" [(ngModel)]="formData.address.city">
-            </div>
-        
-            <div>
-              <label for="zip_code">Code postal :</label>
-              <input type="text" id="zip_code" name="zip_code" [(ngModel)]="formData.address.zip_code">
-            </div>
-          </fieldset>
-        
-          <fieldset>
-            <legend>Profil Utilisateur</legend>
-            <div>
-              <label for="genre">Genre :</label>
-              <input type="text" id="genre" name="genre" [(ngModel)]="formData.userProfile.genre">
-            </div>
-        
-            <div>
-              <label for="orientation">Orientation :</label>
-              <input type="text" id="orientation" name="orientation" [(ngModel)]="formData.userProfile.orientation">
-            </div>
-        
-            <div>
-                <label for="size">Taille :</label>
-                <input type="number" id="size" name="size" [(ngModel)]="formData.userProfile.size">
-              </div>
-            
-              <div>
-                <label for="weight">Poids :</label>
-                <input type="number" id="weight" name="weight" [(ngModel)]="formData.userProfile.weight">
-              </div>
-            
-              <div>
-                <label for="penisSize">Taille du pénis :</label>
-                <input type="number" id="penisSize" name="penisSize" [(ngModel)]="formData.userProfile.penisSize">
-              </div>
-            
-              <div>
-                <label for="hairColor">Couleur des cheveux :</label>
-                <input type="text" id="hairColor" name="hairColor" [(ngModel)]="formData.userProfile.hairColor">
-              </div>
-            
-              <div>
-                <label for="eyeColor">Couleur des yeux :</label>
-                <input type="text" id="eyeColor" name="eyeColor" [(ngModel)]="formData.userProfile.eyeColor">
-              </div>
-          </fieldset>
-    </form>
+  <div class="styleTitle">
+    <h1>Profil Utilisateur</h1>
+  </div>
+  <legend>Compte</legend>
+  <div>
+    <p>Prénom : {{ formData.firstname }}</p>
+  </div>
+  <div>
+    <p>Nom : {{ formData.lastname }}</p>
+  </div>
+  <div>
+    <p>Pseudo : {{ formData.nickname }}</p>
+  </div>
+  <div>
+    <p>Email : {{ formData.email }}</p>
+  </div>
+  <div>
+    <p>NISS : {{ formData.niss }}</p>
+  </div>
+  <div>
+    <p>Inscription : {{ formData.createdAt }}</p>
+  </div>
+  <fieldset>
+    <legend>Adresse</legend>
+    <div>
+      <p>Rue : {{ formData.address.street }}</p>
+    </div>
+    <div>
+      <p>Numéro : {{ formData.address.number }}</p>
+    </div>
+    <div>
+      <p>Ville : {{ formData.address.city }}</p>
+    </div>
+    <div>
+      <p>Code postal : {{ formData.address.zip_code }}</p>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Detail</legend>
+    <div>
+      <p>Genre : {{ formData.userProfile.genre }}</p>
+    </div>
+    <div>
+      <p>Orientation : {{ formData.userProfile.orientation }}</p>
+    </div>
+    <div>
+      <p>Taille : {{ formData.userProfile.size }}</p>
+    </div>
+    <div>
+      <p>Poids : {{ formData.userProfile.weight }}</p>
+    </div>
+    <div>
+      <p>Taille du pénis : {{ formData.userProfile.penisSize }}</p>
+    </div>
+    <div>
+      <p>Couleur des cheveux : {{ formData.userProfile.hairColor }}</p>
+    </div>
+    <div>
+      <p>Couleur des yeux : {{ formData.userProfile.eyeColor }}</p>
+    </div>
+  </fieldset>
 </div>
