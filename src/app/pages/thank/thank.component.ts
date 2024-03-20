@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-about',
+  selector: 'app-thank',
   standalone: true,
   imports: [HeaderComponent, FooterComponent, RouterOutlet],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  templateUrl: './thank.component.html',
+  styleUrl: './thank.component.scss'
 })
-export class AboutComponent {
+export class ThankComponent {
 
 }
