@@ -16,26 +16,22 @@
         </tr>
       </thead>
       <tbody>
-        @for (item of users; track $index) {
+        @for (item of users; track item.id) {
         <tr>
           <td class="sorted integer">{{ item.id }}</td>
-          <td class="image">
-            <img src="../../../../../../assets/announces/{{ item.img }}" />
-          </td>
+          <td class="image"></td>
           <td class="string">
-            <span>
-              {{ item.nickname }}
-            </span>
+            <span>{{ item.nickname }}</span>
           </td>
           <td class="email">
             <a href="{{ item.email }}">{{ item.email }}</a>
           </td>
-          <td class="association"></td>
+          <td class="role">role</td>
           <td class="date">
-            <time>{{ item.createdAt }}</time>
+            <time>{{ item.niss }}</time>
           </td>
           <td class="datetime">
-            <time>{{ item.updatedAt }}</time>
+            <time>{{ item.createdAt }}</time>
           </td>
           <td class="actions">
             <a class="btn btn-info action-show"
