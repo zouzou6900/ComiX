@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { StatService } from '../../../../../services/stat.service';
 
 @Component({
   selector: 'app-status',
@@ -7,6 +8,19 @@ import { Component } from '@angular/core';
   templateUrl: './status.component.html',
   styleUrl: './status.component.scss'
 })
-export class StatusComponent {
-
+export class StatusComponent implements OnInit {
+  stats: []=[];
+  constructor(private statService:StatService){}
+  ngOnInit(): void {
+    this.statService.getStat().subscribe((data: any) => {
+      this.stats = data;
+      console.log('ici stat',this.stats);
+    },
+    (error) => {
+      console.error(
+        'Erreur lors de la récupération des stats:',
+        error
+      );
+    });
+  }
 }
