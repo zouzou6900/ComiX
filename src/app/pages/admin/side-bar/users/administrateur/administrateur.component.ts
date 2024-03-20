@@ -30,17 +30,26 @@ export class AdministrateurComponent {
     'action',
   ];
 
-  dataSource: ListUser[] = [];
+  dataSource: MatTableDataSource<ListUser>;
 
   constructor(
     private userListService: UserListService,
     private dialog: MatDialog
-  ) {}
+  ) {
+    this.dataSource = new MatTableDataSource<ListUser>([]);
+    this.dataSource.filterPredicate = (data: ListUser, filter: string) => {
+      return (
+        data.nickname.trim().toLowerCase().includes(filter) ||
+        data.email.trim().toLowerCase().includes(filter) ||
+        data.niss.trim().toLowerCase().includes(filter)
+      );
+    };
+  }
 
   ngOnInit(): void {
     this.userListService.getAllUsers().subscribe(
       (data: any) => {
-        this.dataSource = data.users;
+        this.dataSource.data = data.users;
       },
       (error) => {
         console.error(
@@ -50,13 +59,19 @@ export class AdministrateurComponent {
       }
     );
   }
-  // dataSource = new MatTableDataSource(this.dataSource);
-  dataSources = new MatTableDataSource(this.dataSource);
+
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    // this.dataSource.filter = filterValue.trim().toLowerCase();
-    this.dataSources.filter = filterValue.trim().toLowerCase();
+    const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+
+    if (filterValue !== '') {
+      this.dataSource.filter = filterValue;
+    } else {
+      this.dataSource.filter = '';
+    }
+
+    console.log('Données après le filtrage :', this.dataSource.filteredData);
   }
+  
   view(id: string) {
     console.log("L'user a été view!");
     console.log('ici id select:', id);
