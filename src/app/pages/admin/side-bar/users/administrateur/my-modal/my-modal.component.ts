@@ -24,10 +24,10 @@ export class MyModalComponent implements OnInit {
       this.personalData = data as PersonalDataFull;
       this.formData = { ...this.personalData.user };
     });
-    this.userFullProfilService.getUsersFull().subscribe((data) => {
-      this.formData = data;
-      console.log(this.userFullProfilService);
-    });
+    // this.userFullProfilService.getUsersFull().subscribe((data) => {
+    //   this.formData = data;
+    //   console.log(this.userFullProfilService);
+    // });
   }
 
   // ngOnInit() {
