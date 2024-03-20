@@ -19,21 +19,11 @@ export class MyModalComponent implements OnInit {
     private userFullProfilService: UserFullProfilService,
     private userDataService: UserDataService
   ) {}
-  ngOnInit(): void {
+
+  ngOnInit() {
     this.userDataService.getPersonalData().subscribe((data) => {
       this.personalData = data as PersonalDataFull;
       this.formData = { ...this.personalData.user };
     });
-    // this.userFullProfilService.getUsersFull().subscribe((data) => {
-    //   this.formData = data;
-    //   console.log(this.userFullProfilService);
-    // });
   }
-
-  // ngOnInit() {
-  //   this.userDataService.getPersonalData().subscribe((data) => {
-  //     this.personalData = data as PersonalDataFull;
-  //     this.formData = { ...this.personalData.user };
-  //   });
-  // }
 }

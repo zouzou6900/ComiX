@@ -66,6 +66,7 @@ export class AdministrateurComponent {
 
     this.openModal();
   }
+
   update(id: string) {
     console.log("L'user a été update!");
   }
