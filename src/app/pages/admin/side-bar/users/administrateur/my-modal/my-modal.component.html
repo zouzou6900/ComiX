@@ -1,5 +1,6 @@
 <div class="styleModal">
     <form (ngSubmit)="onSubmit(formData)" #f="ngForm">
+        <legend>Compte</legend>
         <div>
             <label for="firstname">Prénom :</label>
             <input type="text" id="firstname" name="firstname" [(ngModel)]="formData.firstname">
