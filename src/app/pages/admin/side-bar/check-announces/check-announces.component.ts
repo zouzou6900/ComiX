@@ -1,5 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { AllAnnouncesService } from '../../../../services/all-announces.service';
+import { Announces } from '../../../../interfaces/announces';
 
 @Component({
   selector: 'app-check-announces',
@@ -8,20 +10,18 @@ import { Component } from '@angular/core';
   templateUrl: './check-announces.component.html',
   styleUrl: './check-announces.component.scss'
 })
-export class CheckAnnouncesComponent {
-dataSource: any;
-private readonly apiUrl = 'http://localhost:3333/api/announces';
+export class CheckAnnouncesComponent implements OnInit {
 
-constructor(private httpClient: HttpClient) {}
+  announces: any[] = [];
 
-getAllAnnounces() {
-  const token = localStorage.getItem('token');
-  const headers = new HttpHeaders({
-    'Authorization': `Bearer ${token}`
-  });
+  constructor(private allAnnouncesService: AllAnnouncesService) {}
 
-  return this.httpClient.get(this.apiUrl, {
-    headers
-  });
-}
+  ngOnInit() {
+    this.allAnnouncesService.getAllAnnounces().subscribe((data: any) => {
+      this.announces = data;
+    });
+    
+  }
+
+
 }

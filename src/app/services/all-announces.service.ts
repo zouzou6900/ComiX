@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Announces } from '../interfaces/announces';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AllAnnouncesService {
       'Authorization': `Bearer ${token}`
     });
 
-    return this.httpClient.get(this.apiUrl, {
+    return this.httpClient.get<Announces[]>(this.apiUrl, {
       headers
     });
   }

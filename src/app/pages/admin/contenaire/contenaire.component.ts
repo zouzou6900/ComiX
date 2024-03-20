@@ -83,6 +83,6 @@ export class ContenaireComponent {
     return this.router.url === '/admin/roleUsers';
   }
   isRouteCheckannounces(): boolean {
-    return this.router.url === '/admin/checkAnnouces';
+    return this.router.url === '/admin/checkAnnounces';
   }
 }
