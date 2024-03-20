@@ -1,61 +1,36 @@
 body{
   font-family: "Playfair Display", serif;
+}
 
-.home-container {
-  margin: 0 auto;
-  width: 100%;
+.home-content {
   display: flex;
-  position: relative;
-  display: block;
-  .mega-black-title {
-    font-size: 30px;
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #1b1b1b;
-    .sex {
-      color: #ff004c;
-      font-size: 30px;
-      font-weight: bold;
-      padding: 30px;
-    }
-  }
-  .home-content {
-    max-width: 1280px;
-    min-width: 980px;
-    margin: 50px auto;
-    display: block;
-    .red-color {
-      color: #ff004c;
-    }
-
-    .flex-box {
-      display: flex;
-      align-items: flex-start;
-    }
-
-    .flex-left {
-      flex: 2 1 auto;
-      width: 60%;
-    }
-
-    .flex-right {
-      flex: 2 1 auto;
-      background-color: #ff004c;
-      text-align: center;
-      margin-left: 30px;
-      height: 100%;
-      border-radius: 20px;
-      color: white;
-      padding: 30px;
-      margin-top: 63px;
-    }
-  }
-}
+  flex-direction: column;
 }
 
-.intro{
+.red-color {
+  color: #ff004c;
+}
+
+.flex-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-right {
+  text-align: centerrgb(254, 254, 254);
+  height: 100%;
+  color: white;
+}
+
+.flex-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,6 +38,7 @@ body{
   background-image: url(../../../assets/images/contact/escortagence.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100%;
 }
 
 .intro h2 {
@@ -96,18 +72,22 @@ body{
 }
 
 .sponsor {
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 20px;  
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+.sponsor h3 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ff004c;
+  margin-top: 20px;
+}
+
 .flex-right {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 20px;
   padding: 20px;
 }
@@ -117,6 +97,27 @@ body{
   height: auto;
 }
 
-.pushBottom {
-  margin-bottom: 25px;
+.mega-black-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #1b1b1b;
+}
+
+.sex {
+  color: #ff004c;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 30px;
+}
+
+.catchTxt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #1b1b1b;
 }
