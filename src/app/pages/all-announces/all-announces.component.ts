@@ -15,10 +15,5 @@ export class AllAnnouncesComponent implements OnInit {
 
   constructor(private allAnnouncesService: AllAnnouncesService) {}
 
-  ngOnInit() {
-    this.allAnnouncesService.getAllAnnounces().subscribe((data: any) => {
-      this.announces = data;
-    });
     
-  }
 }
