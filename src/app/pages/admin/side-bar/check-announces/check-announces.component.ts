@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,5 +9,19 @@ import { Component } from '@angular/core';
   styleUrl: './check-announces.component.scss'
 })
 export class CheckAnnouncesComponent {
+dataSource: any;
+private readonly apiUrl = 'http://localhost:3333/api/announces';
 
+constructor(private httpClient: HttpClient) {}
+
+getAllAnnounces() {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+
+  return this.httpClient.get(this.apiUrl, {
+    headers
+  });
+}
 }
