@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AnnouncesComponent } from './announces.component';
+import { UploadMultipleComponent } from './upload-multiple.component';
 
-describe('AnnouncesComponent', () => {
-  let component: AnnouncesComponent;
-  let fixture: ComponentFixture<AnnouncesComponent>;
+describe('UploadMultipleComponent', () => {
+  let component: UploadMultipleComponent;
+  let fixture: ComponentFixture<UploadMultipleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AnnouncesComponent]
+      imports: [UploadMultipleComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AnnouncesComponent);
+    fixture = TestBed.createComponent(UploadMultipleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
