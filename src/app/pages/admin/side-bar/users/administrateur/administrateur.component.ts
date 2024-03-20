@@ -2,16 +2,20 @@ import { Component } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { UserListService, } from '../../../../../services/user-list.service';
+import { UserListService } from '../../../../../services/user-list.service';
 import { ListUser } from '../../../../../interfaces/list-user';
-import { userProfileService } from '../../../../../services/user-profile.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MyModalComponent } from './my-modal/my-modal.component';
 
 @Component({
   selector: 'app-administrateur',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule,MatDialogModule],
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatDialogModule,
+  ],
   templateUrl: './administrateur.component.html',
   styleUrl: './administrateur.component.scss',
 })
@@ -23,13 +27,15 @@ export class AdministrateurComponent {
     'role',
     'naissance',
     'register',
-    'action'
+    'action',
   ];
-  
-  dataSource: ListUser[] = [];
-  dataSources: any;
 
-  constructor(private userListService: UserListService,private userProfil: userProfileService,private dialog: MatDialog) {}
+  dataSource: ListUser[] = [];
+
+  constructor(
+    private userListService: UserListService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.userListService.getAllUsers().subscribe(
@@ -43,36 +49,74 @@ export class AdministrateurComponent {
         );
       }
     );
-     let dataSources = new MatTableDataSource(this.dataSource);
   }
-
+  // dataSource = new MatTableDataSource(this.dataSource);
+  dataSources = new MatTableDataSource(this.dataSource);
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
+    // this.dataSource.filter = filterValue.trim().toLowerCase();
     this.dataSources.filter = filterValue.trim().toLowerCase();
   }
-  view(id:string) {
-    console.log("La fonction a été view!");
-    this.userProfil.getPersonalData().subscribe(
-      (data: any) => {
-        this.dataSource = data.users;
-      },
-      (error) => {
-        console.error(
-          'Erreur lors de la récupération de l utilisateurs:',
-          error
-        );
-      }
-    );
+  view(id: string) {
+    console.log("L'user a été view!");
+    console.log('ici id select:', id);
+    // select id
+    let userSelectId = id;
+    localStorage.setItem('userSelectId', userSelectId.toString());
+
     this.openModal();
   }
-  update(id:string) {
-    console.log("La fonction a été update!");
+  update(id: string) {
+    console.log("L'user a été update!");
   }
-  
+  onSubmit(formData: any) {
+    const updateData = {
+      id: formData.id,
+      firstname: formData.firstname,
+      lastname: formData.lastname,
+      niss: formData.niss,
+      nickname: formData.nickname,
+      email: formData.email,
+      address: {
+        street: formData.address.street,
+        number: formData.address.number,
+        city: formData.address.city,
+        zip_code: formData.address.zip_code,
+      },
+      createdAt: formData.createdAt,
+      updatedAt: formData.updatedAt,
+      userProfile: {
+        id: formData.userProfile.id,
+        userId: formData.userProfile.userId,
+        genre: formData.userProfile.genre,
+        orientation: formData.userProfile.orientation,
+        size: formData.userProfile.size,
+        weight: formData.userProfile.weight,
+        penisSize: formData.userProfile.penisSize,
+        braCup: formData.userProfile.braCup,
+        hairColor: formData.userProfile.hairColor,
+        eyeColor: formData.userProfile.eyeColor,
+        createdAt: formData.userProfile.createdAt,
+        updatedAt: formData.userProfile.updatedAt,
+      },
+      announce: {
+        title: formData.announce.title,
+        description: formData.announce.description,
+        private: formData.announce.private,
+        escort: formData.announce.escort,
+        practices: [formData.announce.practices],
+        createdAt: formData,
+        updatedAt: formData,
+      },
+    };
+  }
+  delete(id: string) {
+    console.log("L'user a été delete!");
+  }
+
   openModal(): void {
     this.dialog.open(MyModalComponent, {
       width: '550px', // Définir la largeur du modal
-      data: { name: 'John', age: 30 } // Passer des données au composant de modal
     });
   }
 }
