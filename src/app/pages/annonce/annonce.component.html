@@ -5,68 +5,69 @@
     <div class="galerie">
 
         
-        <ul>
-    
+        <div class="images-grid">
          @for(image of annonce.user[0].gallery; track image){
             @if(image.cover){
                 <img alt="{{ annonce.user[0].nickname}}" class="img-cover" src="{{ image.url}}" />
             } @else {
-            <div class="images-grid">
+            
                 <img alt="{{ annonce.user[0].nickname}}" src="{{ image.url}}" />
-            </div>
+            
         }
          }
-    
-           
-        
-        </ul>  
-
+        </div>
     </div>
+
     <div class="infos-block">
 @if(annonce && annonce.user.length > 0){
-<div >
-    <h1>{{ annonce.user[0].announce.title }}</h1>
-    <p>{{ annonce.user[0].announce.description }}</p>
-  
+
+    <div class="prez">
+        <h1>{{ annonce.user[0].nickname }}</h1>
+        <p class="bold">{{ annonce.user[0].announce.title }}</p>
+        <p>{{ annonce.user[0].announce.description }}</p>
+    </div>
     <h2>Informations</h2>
     <ul>
-      <li>Nickname: {{ annonce.user[0].nickname }}</li>
-      <li>Email: {{ annonce.user[0].email }}</li>
-      <li>Ville: {{ annonce.user[0].address.zip_code }} {{ annonce.user[0].address.city }}</li>
+      <li><span class="title">Pseudo</span><span>{{ annonce.user[0].nickname }}</span></li>
+      <li><span class="title">Email</span><span>{{ annonce.user[0].email }}</span></li>
+      <li><span class="title">Ville</span><span>{{ annonce.user[0].address.zip_code }} {{ annonce.user[0].address.city }}</span></li>
       </ul>
   
     <h2>Details de l'annonce</h2>
     <ul>
       @if(annonce.user[0].announce.private){
-        <li>Privé</li>
+        <li><span class="title">Privé</span><span>Je vous reçois à mon domicile</span></li>
       }
       @if(annonce.user[0].announce.escort){
-        <li>Escorte</li>
+        <li><span class="title">Escorte</span><span>Je vous rejoins</span></li>
       }
+      </ul>
       
-      <li>Mon profil</li>
+    <h2>Mon profil</h2>
 <ul>
-    @if(annonce.user[0].userProfile.genre) {<li>Genre: {{ annonce.user[0].userProfile.genre }}</li>}
-@if(annonce.user[0].userProfile.orientation) {<li>Orientation: {{ annonce.user[0].userProfile.orientation }}</li>}
-@if(annonce.user[0].userProfile.size) {<li>Taille: {{ annonce.user[0].userProfile.size }}</li>}
-@if(annonce.user[0].userProfile.weight) {<li>Poids: {{ annonce.user[0].userProfile.weight }}</li>}
-@if(annonce.user[0].userProfile.penisSize) {<li>Taille du chibre: {{ annonce.user[0].userProfile.penisSize }}</li>}
-@if(annonce.user[0].userProfile.braCup) {<li>Taille des airbags: {{ annonce.user[0].userProfile.braCup }}</li>}
-@if(annonce.user[0].userProfile.hairColor) {<li>Couleur des cheveux: {{ annonce.user[0].userProfile.hairColor }}</li>}
-@if(annonce.user[0].userProfile.eyeColor) {<li>Couleur des yeux: {{ annonce.user[0].userProfile.eyeColor }}</li>}
+    @if(annonce.user[0].userProfile.genre) {<li><span class="title">Genre</span><span>{{ annonce.user[0].userProfile.genre }}</span></li>}
+    @if(annonce.user[0].userProfile.orientation) {<li><span class="title">Orientation</span><span>{{ annonce.user[0].userProfile.orientation }}</span></li>}
+    @if(annonce.user[0].userProfile.size) {<li><span class="title">Taille</span><span>{{ annonce.user[0].userProfile.size }} cm</span></li>}
+    @if(annonce.user[0].userProfile.weight) {<li><span class="title">Poids</span><span>{{ annonce.user[0].userProfile.weight }} kg</span></li>}
+    @if(annonce.user[0].userProfile.penisSize) {<li><span class="title">Taille du chibre</span><span>{{ annonce.user[0].userProfile.penisSize }} cm?</span></li>}
+    @if(annonce.user[0].userProfile.braCup) {<li><span class="title">Taille des airbags</span><span>{{ annonce.user[0].userProfile.braCup }}</span></li>}
+    @if(annonce.user[0].userProfile.hairColor) {<li><span class="title">Couleur des cheveux</span><span>{{ annonce.user[0].userProfile.hairColor }}</span></li>}
+    @if(annonce.user[0].userProfile.eyeColor) {<li><span class="title">Couleur des yeux</span><span>{{ annonce.user[0].userProfile.eyeColor }}</span></li>}
+    
 
 </ul>
 
-      <li>Tarif:</li>
+      <h2>Tarifs:</h2>
       <ul>
-        @if(annonce.user[0].announce.pricing['15min']) {<li>15min: {{ annonce.user[0].announce.pricing['15min'] }}</li>}
-@if(annonce.user[0].announce.pricing['30min']) {<li>30min: {{ annonce.user[0].announce.pricing['30min'] }}</li>}
-@if(annonce.user[0].announce.pricing['45min']) {<li>45min: {{ annonce.user[0].announce.pricing['45min'] }}</li>}
-@if(annonce.user[0].announce.pricing['60min']) {<li>60min: {{ annonce.user[0].announce.pricing['60min'] }}</li>}
+        @if(annonce.user[0].announce.pricing['_15']) {<li><span class="title">15 minutes</span><span>{{ annonce.user[0].announce.pricing['_15'] }} €</span></li>}
+@if(annonce.user[0].announce.pricing['_30']) {<li><span class="title">30 minutes</span><span>{{ annonce.user[0].announce.pricing['_30'] }} €</span></li>}
+@if(annonce.user[0].announce.pricing['_45']) {<li><span class="title">45 minutes</span><span>{{ annonce.user[0].announce.pricing['_45'] }} €</span></li>}
+@if(annonce.user[0].announce.pricing['_60']) {<li><span class="title">1 heure</span><span>{{ annonce.user[0].announce.pricing['_60'] }} €</span></li>}
+
 
       </ul>
-      <li>Pratiques:</li>
-      <ul>
+      <h2>Pratiques:</h2>
+      <ul class="one-column">
         @if(annonce.user[0].announce.practices.includes(1)) {<li>Massage classic</li>}
         @if(annonce.user[0].announce.practices.includes(2)) {<li>Massage tantra</li>}
         @if(annonce.user[0].announce.practices.includes(3)) {<li>Massage nuru</li>}
@@ -112,10 +113,10 @@
         @if(annonce.user[0].announce.practices.includes(43)) {<li>Déficience de la parole</li>}     
 
       </ul>
-    </ul>
+    
   
     
-  </div>
+  
 }
 </div>
 </div>
