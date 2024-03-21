@@ -1,0 +1,19 @@
+.content{
+    max-width: 1280px;
+    margin:0 auto;
+    display:flex;
+    padding:25px 0;
+    .galerie{
+        background-color: #dedede;
+        ul{
+            margin: 0;padding:0;
+            img.img-cover{
+                width: 100%;
+            }
+
+        }
+    }
+    .infos-block{
+        padding:0 0 0 50px;
+    }
+}

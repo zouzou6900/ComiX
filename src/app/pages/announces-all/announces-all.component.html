@@ -50,16 +50,16 @@
 
 <div class="content">  
 @for (annonce of filteredUsers; track annonce.id) {
-  
-  <div (click)="onAnnouncementClick(annonce)" class="block-announce" [style.backgroundImage]="'url(' + getCoverImageUrl(annonce) + ')'">
+  <a [href]="'annonce/' + annonce.id">
+  <div class="block-announce" [style.backgroundImage]="'url(' + getCoverImageUrl(annonce) + ')'">
     
-   
     <div class="announce-infos">
     <h1>{{ annonce.nickname }}</h1>
     <h2>{{ annonce.announce.title }}</h2>
     <p class="city"><i class="fa-solid fa-location-dot"></i> {{ annonce.address.city }}</p>
     </div>
   </div>
+</a>
 
   }
 </div>

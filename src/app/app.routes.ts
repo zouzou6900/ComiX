@@ -18,7 +18,6 @@ import { RoleUsersComponent } from "./pages/admin/side-bar/users/role-users/role
 import { ListUsersComponent } from "./pages/admin/side-bar/users/list-users/list-users.component";
 import { CheckAnnouncesComponent } from "./pages/admin/side-bar/check-announces/check-announces.component";
 import { LoginGuard } from "./guards/login.guard";
-import { AnnounceDetailsComponent } from "./pages/announce-details/announce-details.component";
 import { MyAccountComponent } from "./pages/my-account/my-account.component";
 import { AllAnnouncesComponent } from "./pages/all-announces/all-announces.component";
 import { MyPersonalDataComponent } from "./components/myaccount/my-personal-data/my-personal-data.component";
@@ -27,6 +26,7 @@ import { MyAdvertiserProfilComponent } from "./components/myaccount/my-advertise
 import { ThankComponent } from "./pages/thank/thank.component";
 import { AnnouncesComponent } from "./pages/announces/announces.component";
 import { AnnouncesAllComponent } from "./pages/announces-all/announces-all.component";
+import { AnnonceComponent } from "./pages/annonce/annonce.component";
 
 export const routes: Routes = [
   {
@@ -67,9 +67,10 @@ export const routes: Routes = [
   {
     path: "all-announces",
     component: AnnouncesAllComponent,
+    canActivate: [authGuard],
   },
   
-  { path: 'all-announcements/:id', component: AnnounceDetailsComponent },
+  { path: 'annonce/:id', component: AnnonceComponent, canActivate: [ authGuard] },
 
   { path: "about", component: AboutComponent },
   { path: "contact", component: ContactComponent },
