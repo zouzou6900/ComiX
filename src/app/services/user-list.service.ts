@@ -2,14 +2,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListUser } from '../interfaces/list-user';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserListService {
   private apiUrl = 'http://localhost:3333/api/user';
+  route: any;
    
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private ActivatedRoute:ActivatedRoute) {}
 
   getAllUsers(): Observable<ListUser[]> {
     const token = localStorage.getItem('token');
@@ -20,8 +22,10 @@ export class UserListService {
       headers,
     });
   }
-  getOneUsers(id:string){
+  getOneUser(){
     const token = localStorage.getItem('token');
+    const id = localStorage.getItem('token');
+    const ids = this.route.snapshot.params['id'];
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
