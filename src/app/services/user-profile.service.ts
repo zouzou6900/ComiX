@@ -11,7 +11,7 @@ export class userProfileService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getPersonalData() {
+  getAdvertiserData() {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
@@ -22,15 +22,15 @@ export class userProfileService {
     });
   }
 
-  updatePersonalData(data: any): Observable<any> {
+  updateAdvertiserData(data: any): Observable<any> {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userid');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json'
+      'Access-Control-Allow-Origin': 'http://localhost:4200'
     });
     console.log('Sending data:', data);
-    return this.httpClient.patch(this.apiUrl + userId, data, { headers });
+    return this.httpClient.patch(this.apiUrl + userId + '/profile', data, { headers });
   }
 
 }

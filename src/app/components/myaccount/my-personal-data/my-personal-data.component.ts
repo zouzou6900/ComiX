@@ -51,29 +51,28 @@ export class MyPersonalDataComponent implements OnInit {
 
   onSubmit(formData: any) {
     const updateData = {
-      firstname: formData.firstname,
-      lastname: formData.lastname,
       nickname: formData.nickname,
       email: formData.email,
-      password: formData.password,
       address: {
         street: formData.address.street,
         number: formData.address.number,
         city: formData.address.city,
         zip_code: formData.address.zip_code,
       }
-    };
+    }
+    ;
     console.log('updateData:', updateData);
     console.log('Sending data (JSON format):', JSON.stringify(updateData));
     this.userDataService.updatePersonalData(updateData).subscribe(
       response => {
         console.log('Update successful!', response);
-        this.personalData = response; // Mettre à jour personalData avec les nouvelles données reçues du backend
+        this.personalData = response;
         this.isEditing = false;
       },
       error => {
         console.error('Update failed:', error);
       }
     );
+    window.location.reload();
   }
 }

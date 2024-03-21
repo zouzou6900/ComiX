@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserAnnounce } from '../../interfaces/announce-details';
-import { AnnouncesService } from '../../services/announces.service';
 import { HeaderComponent } from '../../components/header/header.component';
+import { AnnouncesAllService } from '../../services/announces-all.service';
+import { UserData } from '../announces-all/announces-all.component';
 
 
 @Component({
@@ -13,23 +13,15 @@ import { HeaderComponent } from '../../components/header/header.component';
   styleUrl: './announce-details.component.scss'
 })
 export class AnnounceDetailsComponent implements OnInit {
-
-  announceId: number | undefined;
-  user: UserAnnounce | null = null;
+annonce: UserData | undefined;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private announcesService: AnnouncesService,
-    private router: Router
-  ) { }
+    private announcesAllService: AnnouncesAllService
+  ) {}
 
-  ngOnInit(): void {
-    this.announceId = this.activatedRoute.snapshot.params['id'];
-    this.getCombinedUserData(this.announceId as number);
-  }
-
-  getCombinedUserData(id: number) {
-    this.announcesService.getCombinedUserData(id).subscribe(user => this.user = user);
+  ngOnInit() {
+    
   }
 
   goBack(): void {

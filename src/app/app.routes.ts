@@ -28,59 +28,57 @@ import { ThankComponent } from './pages/thank/thank.component';
 import { PratiquesComponent } from './pages/admin/side-bar/pratiques/pratiques.component';
 import { LogsComponent } from './pages/admin/side-bar/logs/logs.component';
 import { AdminContactComponent } from './pages/admin/side-bar/admin-contact/admin-contact.component';
+import { AnnouncesComponent } from "./pages/announces/announces.component";
+import { AnnouncesAllComponent } from "./pages/announces-all/announces-all.component";
 
 export const routes: Routes = [
   {
-    path: 'login',
+    path: "login",
     component: LoginComponent,
     // si user déjà connected, on l'envoie vers /home
     canActivate: [LoginGuard],
   },
-  { path: 'register', component: RegisterComponent },
+  { path: "register", component: RegisterComponent },
   {
     // redirige les requêtes de localhost:4200/ vers localhost:4200/home
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: "",
+    redirectTo: "home",
+    pathMatch: "full",
   },
   {
-    path: 'myaccount',
+    path: "myaccount",
     component: MyAccountComponent,
     children: [
       {
-        path: 'personal-data',
+        path: "personal-data",
         component: MyPersonalDataComponent,
       },
       {
-        path: 'advertiser-profile',
+        path: "advertiser-profile",
         component: MyAdvertiserProfilComponent,
       },
       {
-        path: 'my-ad',
+        path: "my-announce",
         component: MyAdComponent,
       },
     ],
   },
 
-  { path: 'home', component: HomeComponent },
-  { path: 'myaccount', component: MyAccountComponent },
+  { path: "home", component: HomeComponent },
+  { path: "myaccount", component: MyAccountComponent },
 
   {
-    path: 'allannounces',
-    component: AllAnnouncesComponent,
-    canActivate: [authGuard],
+    path: "all-announces",
+    component: AnnouncesAllComponent,
   },
-  {
-    path: 'announce/:id',
-    component: AnnounceDetailsComponent,
-    canActivate: [authGuard],
-  },
+  
+  { path: 'all-announcements/:id', component: AnnounceDetailsComponent },
 
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'thank', component: ThankComponent },
+  { path: "about", component: AboutComponent },
+  { path: "contact", component: ContactComponent },
+  { path: "thank", component: ThankComponent },
   {
-    path: 'admin',
+    path: "admin",
     component: AdminComponent,
     canActivate: [adminGuard],
     children: [
@@ -99,5 +97,5 @@ export const routes: Routes = [
       { path: 'contact', component: AdminContactComponent },
     ],
   },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  { path: "**", redirectTo: "home", pathMatch: "full" },
 ];

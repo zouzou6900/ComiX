@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDataService } from '../../../services/user-data.service';
 import { userProfileService } from '../../../services/user-profile.service';
+import { FormsModule } from '@angular/forms';
 
 interface AdvertiserProfile {
     genre: string;
     orientation: string;
-    size: number;
-    weight: number;
-    penisSize: 8;
+    size: string;
+    weight: string;
+    penisSize: number;
     braCup: string;
     hairColor: string;
     eyeColor: string;
@@ -16,13 +17,13 @@ interface AdvertiserProfile {
 @Component({
   selector: 'app-my-advertiser-profil',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './my-advertiser-profil.component.html',
   styleUrl: './my-advertiser-profil.component.scss'
 })
 export class MyAdvertiserProfilComponent  implements OnInit {
 
-  myadvertiserProfile: AdvertiserProfile | null = null;
+  advertiserProfile: AdvertiserProfile | null = null;
   isEditing = false;
   formData: any = {};
   
@@ -32,7 +33,14 @@ export class MyAdvertiserProfilComponent  implements OnInit {
   }
 
   ngOnInit() {
-    this.userProfileService.getPersonalData().subscribe(data => {
-      this.myadvertiserProfile = data as AdvertiserProfile;
+    this.userProfileService.getAdvertiserData().subscribe(data => {
+      this.advertiserProfile = data as AdvertiserProfile;
+      this.formData = { ...this.advertiserProfile };
+      console.log(this.formData);
+      
     });
-  }}
+  }
+  toggleEdit() {
+    this.isEditing = !this.isEditing;
+  } 
+}

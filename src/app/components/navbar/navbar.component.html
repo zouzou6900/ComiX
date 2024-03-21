@@ -6,7 +6,8 @@
   </div>
   @if(isLoggedIn()){
   <div class="nav-link">
-    <a routerLink="/allannounces"><i class="fa-solid fa-id-badge"></i> Annonces</a
+    <a routerLink="/allannounces"
+      ><i class="fa-solid fa-id-badge"></i> Annonces</a
     >
   </div>
   } @else {
@@ -16,6 +17,12 @@
     >
   </div>
   }
+
+  <div class="nav-link">
+    <a routerLink="/all-announces" routerLinkActive="active">
+      <i class="fa-solid fa-hands-clapping"></i> Annoncestest
+    </a>
+  </div>
 
   <div class="nav-link">
     <a routerLink="/contact" routerLinkActive="active">
@@ -34,7 +41,9 @@
       <i class="fa-solid fa-hands-clapping"></i> Remerciement
     </a>
   </div>
-  
+
+  <div></div>
+
   @if(!isLoggedIn()){
   <div class="nav-link">
     <a routerLink="/login" routerLinkActive="active"
@@ -65,7 +74,7 @@
       ><i class="fa-solid fa-bell"></i
     ></a>
   </div>
-   @if(isLoggedIn()){
+  @if(isLoggedIn()){
   <div class="nav-link">
     <a (click)="openModal(logoutModal)"
       ><i class="fa fa-power-off"></i>

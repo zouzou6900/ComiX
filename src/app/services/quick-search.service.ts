@@ -7,7 +7,7 @@ import { User } from '../interfaces/quick-search';
   providedIn: 'root',
 })
 export class QuickSearchService {
-  baseUrl = 'http://localhost:3000/user/';
+  baseUrl = 'http://localhost:3333/user/';
   token: string | null = localStorage.getItem('token');
 
   constructor(private http: HttpClient) {}
