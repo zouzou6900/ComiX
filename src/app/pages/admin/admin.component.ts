@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { ContentComponent } from './content/content.component';
-import { ContenaireComponent } from './contenaire/contenaire.component';
+import { ContenaireComponent } from '../../components/contenaire/contenaire.component';
 
 @Component({
   selector: 'app-admin',

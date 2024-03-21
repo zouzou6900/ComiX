@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
 import { interval } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { ContentComponent } from '../content/content.component';
+import { ContentComponent } from '../../pages/admin/content/content.component';
 import { Router } from '@angular/router';
-import { SettingsComponent } from '../side-bar/dashboard/settings/settings.component';
-import { StatusComponent } from '../side-bar/dashboard/status/status.component';
-import { EvenementsComponent } from '../side-bar/dashboard/evenements/evenements.component';
-import { SociauxComponent } from '../side-bar/dashboard/sociaux/sociaux.component';
-import { AdministrateurComponent } from '../side-bar/users/administrateur/administrateur.component';
-import { UsersBanniComponent } from '../side-bar/users/users-banni/users-banni.component';
-import { RoleUsersComponent } from '../side-bar/users/role-users/role-users.component';
-import { ListUsersComponent } from '../side-bar/users/list-users/list-users.component';
-import { CheckAnnouncesComponent } from '../side-bar/check-announces/check-announces.component';
-import { HeaderComponent } from '../../../components/header/header.component';
-import { PratiquesComponent } from '../side-bar/pratiques/pratiques.component';
-import { LogsComponent } from '../side-bar/logs/logs.component';
-import { AdminContactComponent } from '../side-bar/admin-contact/admin-contact.component';
+import { SettingsComponent } from '../../pages/admin/side-bar/dashboard/settings/settings.component';
+import { StatusComponent } from '../../pages/admin/side-bar/dashboard/status/status.component';
+import { EvenementsComponent } from '../../pages/admin/side-bar/dashboard/evenements/evenements.component';
+import { SociauxComponent } from '../../pages/admin/side-bar/dashboard/sociaux/sociaux.component';
+import { AdministrateurComponent } from '../../pages/admin/side-bar/users/administrateur/administrateur.component';
+import { UsersBanniComponent } from '../../pages/admin/side-bar/users/users-banni/users-banni.component';
+import { RoleUsersComponent } from '../../pages/admin/side-bar/users/role-users/role-users.component';
+import { ListUsersComponent } from '../../pages/admin/side-bar/users/list-users/list-users.component';
+import { CheckAnnouncesComponent } from '../../pages/admin/side-bar/check-announces/check-announces.component';
+import { HeaderComponent } from '../header/header.component';
+import { PratiquesComponent } from '../../pages/admin/side-bar/pratiques/pratiques.component';
+import { LogsComponent } from '../../pages/admin/side-bar/logs/logs.component';
+import { AdminContactComponent } from '../../pages/admin/side-bar/admin-contact/admin-contact.component';
 
 @Component({
   selector: 'app-contenaire',

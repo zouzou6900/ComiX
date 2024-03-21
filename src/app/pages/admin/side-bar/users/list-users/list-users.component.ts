@@ -10,11 +10,13 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-list-users',
   standalone: true,
-  imports: [MatFormFieldModule,
+  imports: [
+    MatFormFieldModule,
     MatInputModule,
     MatTableModule,
     MatDialogModule,
-  CommonModule],
+    CommonModule
+  ],
   templateUrl: './list-users.component.html',
   styleUrl: './list-users.component.scss',
 })
