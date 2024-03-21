@@ -67,19 +67,20 @@ export class UploadFilesComponent implements OnInit {
       this.selectedFiles = undefined;
     }
   }
-  deleteImage(fileName: string): void {
-    this.uploadService.deleteFile(fileName).subscribe({
-      next: () => {
-        // Update UI after successful deletion (optional)
-        this.fileInfos = this.fileInfos?.pipe(
-          map(files => files.filter(file => file.name !== fileName))
-        );
-      },
-      error: (err) => {
-        console.error(err);
-        // Handle deletion error (optional)
-      }
-    });
+  deleteImage(file: { name: string; url: string }): void {
+    const userId = localStorage.getItem('userId');
+    const url = file.url;
+
+    this.http.delete(url, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) })
+      .subscribe({
+        next: (response) => {
+          this.fileInfos = this.fileInfos?.pipe(
+            map(files => files.filter(file => file.url !== url))
+          );
+        },
+        error: (error) => {
+        }
+      });
   }
   
 }

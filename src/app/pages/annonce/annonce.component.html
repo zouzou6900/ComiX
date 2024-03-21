@@ -1,0 +1,121 @@
+<app-header></app-header>
+
+<div class="content">
+
+    <div class="galerie">
+
+        
+        <ul>
+    
+         @for(image of annonce.user[0].gallery; track image){
+            @if(image.cover){
+                <img alt="{{ annonce.user[0].nickname}}" class="img-cover" src="{{ image.url}}" />
+            } @else {
+            <div class="images-grid">
+                <img alt="{{ annonce.user[0].nickname}}" src="{{ image.url}}" />
+            </div>
+        }
+         }
+    
+           
+        
+        </ul>  
+
+    </div>
+    <div class="infos-block">
+@if(annonce && annonce.user.length > 0){
+<div >
+    <h1>{{ annonce.user[0].announce.title }}</h1>
+    <p>{{ annonce.user[0].announce.description }}</p>
+  
+    <h2>Informations</h2>
+    <ul>
+      <li>Nickname: {{ annonce.user[0].nickname }}</li>
+      <li>Email: {{ annonce.user[0].email }}</li>
+      <li>Ville: {{ annonce.user[0].address.zip_code }} {{ annonce.user[0].address.city }}</li>
+      </ul>
+  
+    <h2>Details de l'annonce</h2>
+    <ul>
+      @if(annonce.user[0].announce.private){
+        <li>Privé</li>
+      }
+      @if(annonce.user[0].announce.escort){
+        <li>Escorte</li>
+      }
+      
+      <li>Mon profil</li>
+<ul>
+    @if(annonce.user[0].userProfile.genre) {<li>Genre: {{ annonce.user[0].userProfile.genre }}</li>}
+@if(annonce.user[0].userProfile.orientation) {<li>Orientation: {{ annonce.user[0].userProfile.orientation }}</li>}
+@if(annonce.user[0].userProfile.size) {<li>Taille: {{ annonce.user[0].userProfile.size }}</li>}
+@if(annonce.user[0].userProfile.weight) {<li>Poids: {{ annonce.user[0].userProfile.weight }}</li>}
+@if(annonce.user[0].userProfile.penisSize) {<li>Taille du chibre: {{ annonce.user[0].userProfile.penisSize }}</li>}
+@if(annonce.user[0].userProfile.braCup) {<li>Taille des airbags: {{ annonce.user[0].userProfile.braCup }}</li>}
+@if(annonce.user[0].userProfile.hairColor) {<li>Couleur des cheveux: {{ annonce.user[0].userProfile.hairColor }}</li>}
+@if(annonce.user[0].userProfile.eyeColor) {<li>Couleur des yeux: {{ annonce.user[0].userProfile.eyeColor }}</li>}
+
+</ul>
+
+      <li>Tarif:</li>
+      <ul>
+        @if(annonce.user[0].announce.pricing['15min']) {<li>15min: {{ annonce.user[0].announce.pricing['15min'] }}</li>}
+@if(annonce.user[0].announce.pricing['30min']) {<li>30min: {{ annonce.user[0].announce.pricing['30min'] }}</li>}
+@if(annonce.user[0].announce.pricing['45min']) {<li>45min: {{ annonce.user[0].announce.pricing['45min'] }}</li>}
+@if(annonce.user[0].announce.pricing['60min']) {<li>60min: {{ annonce.user[0].announce.pricing['60min'] }}</li>}
+
+      </ul>
+      <li>Pratiques:</li>
+      <ul>
+        @if(annonce.user[0].announce.practices.includes(1)) {<li>Massage classic</li>}
+        @if(annonce.user[0].announce.practices.includes(2)) {<li>Massage tantra</li>}
+        @if(annonce.user[0].announce.practices.includes(3)) {<li>Massage nuru</li>}
+        @if(annonce.user[0].announce.practices.includes(4)) {<li>Massage sensuel</li>}
+        @if(annonce.user[0].announce.practices.includes(5)) {<li>Massage + finitions</li>}
+        @if(annonce.user[0].announce.practices.includes(6)) {<li>Sucer une aubergine sans capote</li>}
+        @if(annonce.user[0].announce.practices.includes(7)) {<li>Sucer une aubergine avec capote</li>}
+        @if(annonce.user[0].announce.practices.includes(8)) {<li>Sucer un abricot</li>}
+        @if(annonce.user[0].announce.practices.includes(9)) {<li>Le doigt qui pue</li>}
+        @if(annonce.user[0].announce.practices.includes(10)) {<li>Échange de salive post covid</li>}
+        @if(annonce.user[0].announce.practices.includes(11)) {<li>Sucer les tétons</li>}
+        @if(annonce.user[0].announce.practices.includes(12)) {<li>Jambes en l'air sans protection</li>}
+        @if(annonce.user[0].announce.practices.includes(13)) {<li>Jambes en l'air avec protection</li>}
+        @if(annonce.user[0].announce.practices.includes(14)) {<li>Double péné et on ne parle pas de pâtes</li>}
+        @if(annonce.user[0].announce.practices.includes(15)) {<li>Visite du tunnel arrière</li>}
+        @if(annonce.user[0].announce.practices.includes(16)) {<li>Avaler du jus d'aubergine</li>}
+        @if(annonce.user[0].announce.practices.includes(17)) {<li>Peinture abstraite sur le corps</li>}
+        @if(annonce.user[0].announce.practices.includes(18)) {<li>Peinture sur le visage</li>}
+        @if(annonce.user[0].announce.practices.includes(19)) {<li>Peinture dans la bouche</li>}
+        @if(annonce.user[0].announce.practices.includes(20)) {<li>Plug-and-play</li>}
+        @if(annonce.user[0].announce.practices.includes(21)) {<li>Bondage</li>}
+        @if(annonce.user[0].announce.practices.includes(22)) {<li>Facesitting</li>}
+        @if(annonce.user[0].announce.practices.includes(23)) {<li>Jeux de rôle</li>}
+        @if(annonce.user[0].announce.practices.includes(24)) {<li>Partouze</li>}
+        @if(annonce.user[0].announce.practices.includes(25)) {<li>Golden shower</li>}
+        @if(annonce.user[0].announce.practices.includes(26)) {<li>Amaury la fontaine</li>}
+        @if(annonce.user[0].announce.practices.includes(27)) {<li>Pieds</li>}
+        @if(annonce.user[0].announce.practices.includes(28)) {<li>Ventriloquie</li>}
+        @if(annonce.user[0].announce.practices.includes(29)) {<li>Nuitée</li>}
+        @if(annonce.user[0].announce.practices.includes(30)) {<li>Dîner</li>}
+        @if(annonce.user[0].announce.practices.includes(31)) {<li>Échangisme</li>}
+        @if(annonce.user[0].announce.practices.includes(32)) {<li>Film / photo</li>}
+        @if(annonce.user[0].announce.practices.includes(33)) {<li>Striptease</li>}
+        @if(annonce.user[0].announce.practices.includes(34)) {<li>Partie de jambes en l'air en voiture</li>}
+        @if(annonce.user[0].announce.practices.includes(35)) {<li>Partie de jambes en l'air en plein air</li>}
+        @if(annonce.user[0].announce.practices.includes(36)) {<li>Very quicky</li>}
+        @if(annonce.user[0].announce.practices.includes(37)) {<li>FT21</li>}
+        @if(annonce.user[0].announce.practices.includes(38)) {<li>Accessible fauteuil roulant</li>}
+        @if(annonce.user[0].announce.practices.includes(39)) {<li>Déficience auditive</li>}
+        @if(annonce.user[0].announce.practices.includes(40)) {<li>Déficience visuelle</li>}
+        @if(annonce.user[0].announce.practices.includes(41)) {<li>Déficience cognitive</li>}
+        @if(annonce.user[0].announce.practices.includes(42)) {<li>Déficience physique</li>}
+        @if(annonce.user[0].announce.practices.includes(43)) {<li>Déficience de la parole</li>}     
+
+      </ul>
+    </ul>
+  
+    
+  </div>
+}
+</div>
+</div>

@@ -137,23 +137,23 @@ resetFilters() {
   this.filteredUsers = this.annonces;
 }
 
- onSearchChange() {
+onSearchChange() {
   this.filteredUsers = this.annonces.filter((annonce) => {
     const meetsCityCriteria = !this.searchCity || annonce.address.city.toLowerCase().includes(this.searchCity.toLowerCase());
     const meetsGenderCriteria = !this.selectedGender || annonce.userProfile.genre === this.selectedGender;
     let meetsAvailabilityFilter;
     switch (this.availabilityFilterValue) {
       case "Les deux":
-        meetsAvailabilityFilter = true; // Show all for "Les deux"
+        meetsAvailabilityFilter = true;
         break;
       case "private":
-        meetsAvailabilityFilter = annonce.announce.private; // Filter by priii: true
+        meetsAvailabilityFilter = annonce.announce.private;
         break;
       case "escort":
-        meetsAvailabilityFilter = annonce.announce.escort; // Filter by esccc: true
+        meetsAvailabilityFilter = annonce.announce.escort;
         break;
       default:
-        meetsAvailabilityFilter = true; // Default to show all
+        meetsAvailabilityFilter = true;
     }
     const meetsPracticeCriteria = this.selectedPractices.length === 0 ||
       this.selectedPractices.every((practiceId) => annonce.announce.practices.includes(practiceId));
