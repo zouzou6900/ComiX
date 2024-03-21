@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserDataService } from '../../../../../../services/user-data.service';
 import { FormsModule } from '@angular/forms';
 import { PersonalDataFull } from '../../../../../../interfaces/personal-data-full';
-import { UserFullProfilService } from '../../../../../../services/user-full-profil.service';
+import { UserListService } from '../../../../../../services/user-list.service';
 
 @Component({
   selector: 'app-my-modal',
@@ -16,14 +16,13 @@ export class MyModalComponent implements OnInit {
   formData: any = {};
 
   constructor(
-    private userFullProfilService: UserFullProfilService,
-    private userDataService: UserDataService
+    private userDataService: UserDataService,
+    private userListe: UserListService
   ) {}
 
   ngOnInit() {
-    this.userDataService.getPersonalData().subscribe((data) => {
-      this.personalData = data as PersonalDataFull;
-      this.formData = { ...this.personalData.user };
-    });
-  }
+  //   this.userListe.getOneUsers().subscribe((data) => {
+      
+  // })
+}
 }
