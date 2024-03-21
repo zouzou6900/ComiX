@@ -1,149 +1,147 @@
+<mat-card *ngFor="let prop of ['userCount', 'adminCount', 'manCount', 'womenCount', 'transgenreCount', 'transformersCount', 'robotCount','announceCount','announceDayCount']"> 
+</mat-card>
 <div class="content">
   <section id="main" class="content-body">
     <div class="padding-admin">
       <div class="row tile_count">
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box info-box-general">
-            <span class="info-box-icon info-box-icon-general"
-              ><i class="fa fa-users"></i>
+            <span class="info-box-icon info-box-icon-general">
+              <i class="fa fa-users"></i>
             </span>
             <div class="info-box-content">
               <span>Total des membres</span>
-              <div class="info-box-number">5</div>
+              <div class="info-box-number">{{ getCount('userCount') }}</div>
             </div>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box info-box-general">
-            <span class="info-box-icon info-box-icon-general"
-              ><i class="fa fa-street-view"></i>
+            <span class="info-box-icon info-box-icon-general">
+              <i class="fa fa-street-view"></i>
             </span>
             <div class="info-box-content">
-              <span>Total des personnes en ligne actuellement </span>
-              <div class="info-box-number">1</div>
+              <span>Total des personnes en ligne</span>
+              <div class="info-box-number">{{ getCount('adminCount') }}</div>
             </div>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box info-box-general">
-            <span class="info-box-icon info-box-icon-general"
-              ><i class="fa fa-envelope"></i>
+            <span class="info-box-icon info-box-icon-general">
+              <i class="fa fa-envelope"></i>
             </span>
             <div class="info-box-content">
               <span>Total des messages</span>
-              <div class="info-box-number">8</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr />
-      <h2>Statistiques des utilisateurs</h2>
-      <hr />
-
-      <div class="row tile_count">
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box info-box-user">
-            <span class="info-box-icon info-box-icon-user"
-              ><i class="fa fa-users"></i>
-            </span>
-            <div class="info-box-content">
-              <span>Total des membres</span>
-              <div class="info-box-number">5</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box info-box-user">
-            <span class="info-box-icon info-box-icon-user"
-              ><i class="fa fa-street-view"></i>
-            </span>
-            <div class="info-box-content">
-              <span>Total des membres en ligne</span>
-              <div class="info-box-number">1</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box info-box-user">
-            <span class="info-box-icon info-box-icon-user"
-              ><i class="fa fa-mars"></i>
-            </span>
-            <div class="info-box-content">
-              <span>Total des membres masculin</span>
-              <div class="info-box-number">3</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box info-box-user">
-            <span class="info-box-icon info-box-icon-user"
-              ><i class="fa fa-user-plus"></i>
-            </span>
-            <div class="info-box-content">
-              <span>Total des membres inscrit aujourd'hui</span>
               <div class="info-box-number">0</div>
             </div>
           </div>
         </div>
+      </div>
+      <hr/>
+      <h2>Statistiques des utilisateurs</h2>
+      <hr/>
+      <div class="row tile_count">
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box info-box-user">
-            <span class="info-box-icon info-box-icon-user"
-              ><i class="fa fa-user-times"></i>
-            </span>
-            <div class="info-box-content">
-              <span>Total des membres banni</span>
-              <div class="info-box-number">1</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box info-box-user">
-            <span class="info-box-icon info-box-icon-user"
-              ><i class="fa fa-venus"></i>
+            <span class="info-box-icon info-box-icon-user">
+              <i class="fa fa-venus"></i>
             </span>
             <div class="info-box-content">
               <span>Total des membres feminin</span>
-              <div class="info-box-number">0</div>
+              <div class="info-box-number">{{ getCount('womenCount') }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box info-box-user">
+            <span class="info-box-icon info-box-icon-user">
+              <i class="fa fa-mars"></i>
+            </span>
+            <div class="info-box-content">
+              <span>Total des membres masculin</span>
+              <div class="info-box-number">{{ getCount('manCount') }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box info-box-user">
+            <span class="info-box-icon info-box-icon-user"> 
+              <i class="fa fa-transgender"></i>
+            </span>
+            <div class="info-box-content">
+              <span>Total des membres transexuelle</span>
+              <div class="info-box-number">{{ getCount('adminCount') }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box info-box-user">
+            <span class="info-box-icon info-box-icon-user">
+              <i class="fa fa-robot"></i>
+            </span>
+            <div class="info-box-content">
+              <span>Total des membres robot</span>
+              <div class="info-box-number">{{ getCount('robotCount') }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box info-box-user">
+            <span class="info-box-icon info-box-icon-user">
+              <img class="iconSpecial" src="../../../../../../assets/images/admin/transfor.svg">
+            </span>
+            <div class="info-box-content">
+              <span>Total des membres transformers</span>
+              <div class="info-box-number">{{ getCount('transformersCount') }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box info-box-user">
+            <span class="info-box-icon info-box-icon-user">
+              <i class="fa-solid fa-transgender"></i>
+            </span>
+            <div class="info-box-content">
+              <span>Total des memnbres transgenres</span>
+              <div class="info-box-number">{{ getCount('transgenreCount') }}</div>
             </div>
           </div>
         </div>
       </div>
-
-      <hr />
+      <hr/>
       <h2>Statistiques des annonces</h2>
-      <hr />
-
+      <hr/>
       <div class="row tile_count">
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box info-box-forum">
-            <span class="info-box-icon info-box-icon-forum"
-              ><i class="fa fa-comments"></i>
+            <span class="info-box-icon info-box-icon-forum">
+              <i class="fa fa-comments"></i>
             </span>
             <div class="info-box-content">
               <span>Total des annonces</span>
-              <div class="info-box-number">3</div>
+              <div class="info-box-number">{{ getCount('announceCount') }}</div>
             </div>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box info-box-forum">
-            <span class="info-box-icon info-box-icon-forum"
-              ><i class="fa fa-comment"></i>
+            <span class="info-box-icon info-box-icon-forum">
+              <i class="fa fa-comment"></i>
             </span>
             <div class="info-box-content">
               <span>Total des commentaires</span>
-              <div class="info-box-number">5</div>
+              <div class="info-box-number">0</div>
             </div>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box info-box-forum">
-            <span class="info-box-icon info-box-icon-forum"
-              ><i class="fa fa-inbox"></i>
+            <span class="info-box-icon info-box-icon-forum">
+              <i class="fa fa-cog"></i>
             </span>
             <div class="info-box-content">
-              <span>Nombres de pratiques</span>
+              <span>Nombres de catégories</span>
               <div class="info-box-number">4</div>
             </div>
           </div>
@@ -155,7 +153,7 @@
             </span>
             <div class="info-box-content">
               <span>Total des annonces aujourd'hui</span>
-              <div class="info-box-number">0</div>
+              <div class="info-box-number">{{ getCount('announceDayCount') }}</div>
             </div>
           </div>
         </div>
@@ -173,10 +171,10 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box info-box-forum">
             <span class="info-box-icon info-box-icon-forum"
-              ><i class="fa fa-newspaper-o"></i>
+              ><i class="fa fa-cogs"></i>
             </span>
             <div class="info-box-content">
-              <span>Nombres de forum</span>
+              <span>Nombres de pratiques</span>
               <div class="info-box-number">23</div>
             </div>
           </div>

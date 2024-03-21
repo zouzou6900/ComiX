@@ -88,6 +88,7 @@ export class ContenaireComponent {
   isRouteRoleUsers(): boolean {
     return this.router.url === '/admin/roleUsers';
   }
+<<<<<<< HEAD
   isRouteCheckAnnounces(): boolean {
     return this.router.url === '/admin/checkAnnounces';
   }
@@ -99,5 +100,9 @@ export class ContenaireComponent {
   }
   isRouteAdminContact(): boolean {
     return this.router.url === '/admin/contact';
+=======
+  isRouteCheckannounces(): boolean {
+    return this.router.url === '/admin/checkAnnounces';
+>>>>>>> f4deffd6b75efe11b0ff7276fb15196a8d8b3762
   }
 }

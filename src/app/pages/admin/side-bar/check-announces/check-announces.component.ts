@@ -1,27 +1,45 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AllAnnouncesService } from '../../../../services/all-announces.service';
+import { Announces } from '../../../../interfaces/announces';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-check-announces',
   standalone: true,
-  imports: [],
+  imports: [MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,],
   templateUrl: './check-announces.component.html',
   styleUrl: './check-announces.component.scss'
 })
-export class CheckAnnouncesComponent {
-dataSource: any;
-private readonly apiUrl = 'http://localhost:3333/api/announces';
-
-constructor(private httpClient: HttpClient) {}
-
-getAllAnnounces() {
-  const token = localStorage.getItem('token');
-  const headers = new HttpHeaders({
-    'Authorization': `Bearer ${token}`
-  });
-
-  return this.httpClient.get(this.apiUrl, {
-    headers
-  });
+export class CheckAnnouncesComponent implements OnInit {
+applyFilter($event: KeyboardEvent) {
+throw new Error('Method not implemented.');
 }
+  displayedColumns: string[] = [
+    'id',
+    'title',
+    'description',
+    'action',
+  ];
+  dataSource: MatTableDataSource<Announces> ;
+  announces: any[] = [];
+ 
+  constructor(private allAnnouncesService: AllAnnouncesService) {
+    this.dataSource = new MatTableDataSource<any>([]);
+    console.log('test1',this.dataSource);
+    
+  }
+
+  ngOnInit(): void {
+    this.allAnnouncesService.getAllAnnounces().subscribe((data: any) => {
+      this.announces = data;
+      console.log('ici',this.announces);
+    });
+    
+  }
+
+
 }
