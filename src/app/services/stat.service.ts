@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Stats } from '../interfaces/stats';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +12,13 @@ export class StatService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getStat() {
+  getStat(): Observable<Stats> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
 
-    return this.httpClient.get(this.apiUrl, {
+    return this.httpClient.get<Stats>(this.apiUrl, {
       headers
     });
   }
