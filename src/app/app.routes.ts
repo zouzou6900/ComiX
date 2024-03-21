@@ -25,6 +25,9 @@ import { MyPersonalDataComponent } from './components/myaccount/my-personal-data
 import { MyAdComponent } from './components/myaccount/my-ad/my-ad.component';
 import { MyAdvertiserProfilComponent } from './components/myaccount/my-advertiser-profil/my-advertiser-profil.component';
 import { ThankComponent } from './pages/thank/thank.component';
+import { PratiquesComponent } from './pages/admin/side-bar/pratiques/pratiques.component';
+import { LogsComponent } from './pages/admin/side-bar/logs/logs.component';
+import { AdminContactComponent } from './pages/admin/side-bar/admin-contact/admin-contact.component';
 
 export const routes: Routes = [
   {
@@ -40,22 +43,23 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  { path: "myaccount", 
+  {
+    path: 'myaccount',
     component: MyAccountComponent,
     children: [
       {
         path: 'personal-data',
-        component: MyPersonalDataComponent
+        component: MyPersonalDataComponent,
       },
       {
         path: 'advertiser-profile',
-        component: MyAdvertiserProfilComponent
+        component: MyAdvertiserProfilComponent,
       },
       {
         path: 'my-ad',
-        component: MyAdComponent
-      }
-    ]
+        component: MyAdComponent,
+      },
+    ],
   },
 
   { path: 'home', component: HomeComponent },
@@ -90,6 +94,9 @@ export const routes: Routes = [
       { path: 'usersBan', component: UsersBanniComponent },
       { path: 'roleUsers', component: RoleUsersComponent },
       { path: 'checkAnnounces', component: CheckAnnouncesComponent },
+      { path: 'pratiques', component: PratiquesComponent },
+      { path: 'logs', component: LogsComponent },
+      { path: 'contact', component: AdminContactComponent },
     ],
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

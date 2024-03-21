@@ -13,6 +13,9 @@ import { RoleUsersComponent } from '../side-bar/users/role-users/role-users.comp
 import { ListUsersComponent } from '../side-bar/users/list-users/list-users.component';
 import { CheckAnnouncesComponent } from '../side-bar/check-announces/check-announces.component';
 import { HeaderComponent } from '../../../components/header/header.component';
+import { PratiquesComponent } from '../side-bar/pratiques/pratiques.component';
+import { LogsComponent } from '../side-bar/logs/logs.component';
+import { AdminContactComponent } from '../side-bar/admin-contact/admin-contact.component';
 
 @Component({
   selector: 'app-contenaire',
@@ -30,6 +33,9 @@ import { HeaderComponent } from '../../../components/header/header.component';
     RoleUsersComponent,
     CheckAnnouncesComponent,
     HeaderComponent,
+    PratiquesComponent,
+    LogsComponent,
+    AdminContactComponent,
   ],
   templateUrl: './contenaire.component.html',
   styleUrl: './contenaire.component.scss',
@@ -82,7 +88,16 @@ export class ContenaireComponent {
   isRouteRoleUsers(): boolean {
     return this.router.url === '/admin/roleUsers';
   }
-  isRouteCheckannounces(): boolean {
-    return this.router.url === '/admin/checkAnnouces';
+  isRouteCheckAnnounces(): boolean {
+    return this.router.url === '/admin/checkAnnounces';
+  }
+  isRoutePratique(): boolean {
+    return this.router.url === '/admin/pratiques';
+  }
+  isRouteLogs(): boolean {
+    return this.router.url === '/admin/logs';
+  }
+  isRouteAdminContact(): boolean {
+    return this.router.url === '/admin/contact';
   }
 }
