@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpEvent, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
+import { HttpClient, HttpRequest, HttpEvent, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
+interface FileInfo {
+  name: string;
+  url: string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class FileUploadService {
-  private baseUrl = 'http://localhost:3333';
+  private baseUrl = 'http://localhost:3333/api/user/';
 
   constructor(private http: HttpClient) { }
 
@@ -25,17 +28,36 @@ export class FileUploadService {
       Authorization: `Bearer ${token}`
     });
   
-    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
+    const req = new HttpRequest('POST', `${this.baseUrl}${userId}/gallery`, formData, {
       reportProgress: true,
       responseType: 'json',
       headers,
     });
+
+    
   
+    //this.http.request(req);
+
     return this.http.request(req);
   }
   
 
-  getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files`);
+  getFiles(): Observable<{ name: string; url: string }[]> {
+    const userId = localStorage.getItem('userid');
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+  
+    return this.http.get<FileInfo[]>(`${this.baseUrl}${userId}/gallery`, { headers })
+    .pipe(
+      // No mapping needed now, type is already inferred
+    );
+  }
+
+  deleteFile(fileName: string): Observable<any> {
+    const userId = localStorage.getItem('userid');
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+  
+    return this.http.delete(`${this.baseUrl}${userId}/gallery/${fileName}`, { headers });
   }
 }

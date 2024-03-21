@@ -1,9 +1,10 @@
 <app-header>
 </app-header>
-<div class="content">
-    
+blabg
 
-@for(user of users;track user.id){
-  {{user.lastname}}
+@if(users.length > 0){
+@for(user of users;track user.firstname){
+  {{ user.firstname }}
 }
-</div>
+}
+

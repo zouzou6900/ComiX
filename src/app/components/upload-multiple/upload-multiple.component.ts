@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 import { FileUploadService } from '../../services/file-upload.service';
 
 @Component({
@@ -15,12 +15,17 @@ export class UploadFilesComponent implements OnInit {
   selectedFiles?: FileList;
   message: string[] = [];
 
-  fileInfos?: Observable<any>;
+  fileInfos?: Observable<{ name: string; url: string }[]>;
 
-  constructor(private uploadService: FileUploadService) { }
+  constructor(private uploadService: FileUploadService, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.fileInfos = this.uploadService.getFiles();
+  }
+
+  extractImageUrl(fullUrl: string): string {
+    const parts = fullUrl.split('/');
+    return parts[parts.length - 1];
   }
 
   selectFiles(event: any): void {
@@ -62,4 +67,19 @@ export class UploadFilesComponent implements OnInit {
       this.selectedFiles = undefined;
     }
   }
+  deleteImage(fileName: string): void {
+    this.uploadService.deleteFile(fileName).subscribe({
+      next: () => {
+        // Update UI after successful deletion (optional)
+        this.fileInfos = this.fileInfos?.pipe(
+          map(files => files.filter(file => file.name !== fileName))
+        );
+      },
+      error: (err) => {
+        console.error(err);
+        // Handle deletion error (optional)
+      }
+    });
+  }
+  
 }

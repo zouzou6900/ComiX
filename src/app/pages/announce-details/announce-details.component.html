@@ -1,51 +1,48 @@
 <app-header>
   
 </app-header>
+test
 
-@if (user){
-  <h2>Annonce de {{ user.firstname }} {{ user.lastname }}</h2>
+{{ annonce?.firstname }}
+@if (annonce){
+  <h2>Annonce de {{ annonce.firstname }} {{ annonce.lastname }}</h2>
 
   <ul>
-    <li>Prénom et Nom: {{ user.firstname }} {{ user.lastname }}</li>
-    <li>Pseudo: {{ user.nickname }}</li>
-    <li>Email: {{ user.email }}</li>
-    <li>Adresse: {{ user.address.street }} {{ user.address.number }}, {{ user.address.city }} {{ user.address.zip_code }}</li>
+    <li>Prénom et Nom: {{ annonce.firstname }} {{ annonce.lastname }}</li>
+    <li>Pseudo: {{ annonce.nickname }}</li>
+    <li>Email: {{ annonce.email }}</li>
+    <li>Adresse: {{ annonce.address.street }} {{ annonce.address.number }}, {{ annonce.address.city }} {{ annonce.address.zip_code }}</li>
     
-    <li>Compte créé le : {{ user.createdAt }}</li>
-    <li>Compte mis à jour le : {{ user.updatedAt }}</li>
-    <li>Genre : {{ user.userProfile.genre }}</li>
-    <li>Orientation : {{ user.userProfile.orientation }}</li>
-    <li>Taille : {{ user.userProfile.size }}</li>
-    <li>Poids : {{ user.userProfile.weight }}</li>
-    <li>Taille du penis : {{ user.userProfile.penisSize }}</li>
-    <li>Tour de poitrine : {{ user.userProfile.braCup }}</li>
-    <li>Couleur cheveux : {{ user.userProfile.hairColor }}</li>
-    <li>Couleur des yeux : {{ user.userProfile.eyeColor }}</li>
-    <li>Titre de l'annonce : {{ user.announce.title }}</li>
-    <li>Description de l'annonce: {{ user.announce.description }}</li>
-    <li>Carte d'infidélité ? : {{ user.announce.infidelityCard }}</li>
-    <li>Reçoit en privé ? : {{ user.announce.private }}</li>
-    <li>Se déplace ? : {{ user.announce.escort }}</li>
-    @for(practice of user.announce.practices; track practice){
+    <li>Compte créé le : {{ annonce.createdAt }}</li>
+    <li>Compte mis à jour le : {{ annonce.updatedAt }}</li>
+    
+    <li>Orientation : {{ annonce.address.number }}</li>
+
+    <li>Titre de l'annonce : {{ annonce.announce.title }}</li>
+    <li>Description de l'annonce: {{ annonce.announce.description }}</li>
+    <li>Carte d'infidélité ? : {{ annonce.announce.infidelityCard }}</li>
+    <li>Reçoit en privé ? : {{ annonce.announce.private }}</li>
+    <li>Se déplace ? : {{ annonce.announce.escort }}</li>
+    @for(practice of annonce.announce.practices; track practice){
     <li>Pratique : {{ practice }}</li>
     }
-    @if(user.announce.pricing['15min'] != null && user.announce.pricing['15min']>0) {
-    <li>Prix 15min : {{ user.announce.pricing['15min'] }}</li>
+    @if(annonce.announce.pricing['15min'] != null && annonce.announce.pricing['15min']>0) {
+    <li>Prix 15min : {{ annonce.announce.pricing['15min'] }}</li>
     }
-    @if(user.announce.pricing['30min'] != null && user.announce.pricing['30min']>0) {
-    <li>Prix 30min : {{ user.announce.pricing['30min'] }}</li>
+    @if(annonce.announce.pricing['30min'] != null && annonce.announce.pricing['30min']>0) {
+    <li>Prix 30min : {{ annonce.announce.pricing['30min'] }}</li>
     }
-    @if(user.announce.pricing['45min'] != null && user.announce.pricing['45min']>0) {
-    <li>Prix 45min : {{ user.announce.pricing['45min'] }}</li>
+    @if(annonce.announce.pricing['45min'] != null && annonce.announce.pricing['45min']>0) {
+    <li>Prix 45min : {{ annonce.announce.pricing['45min'] }}</li>
     }
-    @if(user.announce.pricing['60min'] != null && user.announce.pricing['60min']>0) {
-    <li>Prix 1h : {{ user.announce.pricing['60min'] }}</li>
+    @if(annonce.announce.pricing['60min'] != null && annonce.announce.pricing['60min']>0) {
+    <li>Prix 1h : {{ annonce.announce.pricing['60min'] }}</li>
     }
     
     </ul>
     <button (click)="goBack()">Retour</button>
 }
-@else if (!user){  <p>Chargement des informations de l'utilisateur ...</p>}
+@else if (!annonce){  <p>Chargement des informations de l'utilisateur ...</p>}
 
 
 
