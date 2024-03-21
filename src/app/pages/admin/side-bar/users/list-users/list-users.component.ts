@@ -6,13 +6,15 @@ import { UserListService } from '../../../../../services/user-list.service';
 import { ListUser } from '../../../../../interfaces/list-user';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MyModalComponent } from '../administrateur/my-modal/my-modal.component';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-list-users',
   standalone: true,
   imports: [MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatDialogModule,],
+    MatDialogModule,
+  CommonModule],
   templateUrl: './list-users.component.html',
   styleUrl: './list-users.component.scss',
 })
