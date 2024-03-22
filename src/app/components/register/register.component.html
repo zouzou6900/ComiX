@@ -101,10 +101,10 @@
       <small class="error">
         @if(niss.errors?.['required']){
         <div>NISS obligatoire</div>
-        }  @if(password.errors?.['maxlength']){
+        }  @if(niss.errors?.['maxlength']){
           <div>NISS trop long (15 caractères)</div>
           }
-          @if(password.errors?.['minlength']){
+          @if(niss.errors?.['minlength']){
             <div>NISS trop court (15 caractères)</div>
             }
       </small>
@@ -127,7 +127,7 @@
         @if(password.errors?.['required']){
         <div>Mot de passe obligatoire</div>
         }  @if(password.errors?.['minlength']){
-          <div>Mot de passe trop court</div>
+          <div>Mot de passe trop court (8 caractères min.)</div>
           }
       </small>
       }
