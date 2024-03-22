@@ -11,7 +11,7 @@ export class AnnouncesService {
     throw new Error('Method not implemented.');
   }
 
-  base_url = 'http://localhost:3000/users';
+  base_url = 'http://localhost:3333/users';
   constructor(private httpClient: HttpClient) {}
   getUser(userId: number): Observable<UserData> {
     return this.httpClient.get<UserData>(`${this.base_url}/${userId}`);

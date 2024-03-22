@@ -1,12 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Announces } from '../interfaces/announces';
+import { UserData } from '../pages/announces-all/announces-all.component';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
-interface UserData {
-  id: number;
-  firstname: string;
-  lastname: string;
-}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,4 +19,5 @@ getUsers(token: string): Observable<UserData[]> {
     headers
   });
 }
+
 }

@@ -1,13 +1,17 @@
 <aside class="main-sidebar">
   <section class="sidebar">
     <ul class="sidebar-menu tree" data-widget="tree" data-animation-speed="250">
-      <mat-accordion>
+      <mat-accordion style="background-color: #131313">
         <mat-expansion-panel
           (opened)="panelOpenState = true"
           (closed)="panelOpenState = false"
           [expanded]="true"
+          style="background-color: #131313"
         >
-          <mat-expansion-panel-header class="style-black">
+          <mat-expansion-panel-header
+            class="style-black"
+            style="background-color: #131313"
+          >
             <mat-panel-title>
               <a [routerLink]="['/admin/dashboard']" class="">
                 <i class="fa fa-fw fa-dashboard"></i>
@@ -57,6 +61,7 @@
         <mat-expansion-panel
           (opened)="panelOpenState = true"
           (closed)="panelOpenState = false"
+          style="background-color: #131313"
         >
           <mat-expansion-panel-header class="style-black">
             <mat-panel-title>
@@ -98,6 +103,12 @@
         <a [routerLink]="['/admin/checkAnnounces']" class="">
           <i class="fa-fw fa-solid fa-id-badge"></i>
           <span>Annonces</span>
+        </a>
+      </li>
+      <li class="">
+        <a [routerLink]="['/admin/pratiques']" class="">
+          <i class="fa-fw fa-solid fa-id-badge"></i>
+          <span>Pratiques</span>
         </a>
       </li>
       <li class="">

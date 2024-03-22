@@ -28,6 +28,9 @@ import { AnnouncesComponent } from "./pages/announces/announces.component";
 import { AnnouncesAllComponent } from "./pages/announces-all/announces-all.component";
 import { AnnonceComponent } from "./pages/annonce/annonce.component";
 import { UploadFilesComponent } from "./components/upload-multiple/upload-multiple.component";
+import { AdminContactComponent } from "./pages/admin/side-bar/admin-contact/admin-contact.component";
+import { LogsComponent } from "./pages/admin/side-bar/logs/logs.component";
+import { PratiquesComponent } from "./pages/admin/side-bar/pratiques/pratiques.component";
 
 export const routes: Routes = [
   {
@@ -91,6 +94,19 @@ export const routes: Routes = [
     component: AdminComponent,
     canActivate: [adminGuard],
     children: [
+      { path: 'dashboard', component: ContentComponent },
+      { path: 'settings', component: SettingsComponent },
+      { path: 'status', component: StatusComponent },
+      { path: 'evenements', component: EvenementsComponent },
+      { path: 'sociaux', component: SociauxComponent },
+      { path: 'listUsers', component: ListUsersComponent },
+      { path: 'administrateur', component: AdministrateurComponent },
+      { path: 'usersBan', component: UsersBanniComponent },
+      { path: 'roleUsers', component: RoleUsersComponent },
+      { path: 'checkAnnounces', component: CheckAnnouncesComponent },
+      { path: 'pratiques', component: PratiquesComponent },
+      { path: 'logs', component: LogsComponent },
+      { path: 'contact', component: AdminContactComponent },
       { path: "dashboard", component: ContentComponent,  },
       { path: "settings", component: SettingsComponent },
       { path: "status", component: StatusComponent },

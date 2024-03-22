@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../../components/header/header.component';
 import { RouterOutlet } from '@angular/router';
 
@@ -9,5 +9,13 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './content.component.html',
   styleUrl: './content.component.scss',
 })
-export class ContentComponent {}
 
+export class ContentComponent implements OnInit {
+  browserInfo: string | undefined;
+  osInfo: string | undefined;
+
+  ngOnInit() {
+    this.browserInfo = `Browser: ${navigator.userAgent}`;
+    this.osInfo = `OS: ${navigator.platform}`;
+  }
+}
