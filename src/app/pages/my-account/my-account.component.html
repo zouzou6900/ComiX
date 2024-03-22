@@ -1,13 +1,27 @@
 <app-header>
   
 </app-header>
+<div class="content">
+  <h1>Bienvenue dans la gestion de votre compte annonceur !</h1>
 
-<h1>Mon Compte</h1>
+  <ul>
+    @if(location.path() === '/myaccount'){<li><a routerLink="./" routerLinkActive="active"><i class="fa-solid fa-user"></i> Introduction</a></li>}
+    <li><a routerLink="personal-data" routerLinkActive="active">Mes données personnelles</a></li>
+    <li><a routerLink="advertiser-profile" routerLinkActive="active">Mon profil annonceur</a></li>
+    <li><a routerLink="my-announce" routerLinkActive="active">Gestion de mon annonce</a></li>
+    <li><a routerLink="my-gallery" routerLinkActive="active">Gestion de mes photos</a></li>
+  </ul>
+  @if(location.path() === '/myaccount'){
+<div class="myaccount-block">
+  <p>Ici vous pouvez gérer vos <b>informations personnelles</b> et votre <b>compte annonceur</b> en toute <span class="color-red">sécurité</span>, vous êtes ici en toute <span class="color-red">discrétion</span>, personne ne vous voit!<br>( A part nous, les administrateurs bien évidemment! D'ailleurs si nous vous demandons votre <b>mot de passe</b>, soyez assez <span class="color-red">gentils</span> pour nous le donner! ) <br><br>
+    P.S: Nous acceptons les ristournes avec grand plaisir !</p>
+   
+</div>
 
-<ul>
-  <li><a routerLink="personal-data">Mes données personnelles</a></li>
-  <li><a routerLink="advertiser-profile">Mon profil annonceur</a></li>
-  <li><a routerLink="my-announce">Mon annonce</a></li>
-</ul>
-
+}
+@if(location.path() !== '/myaccount'){
+<div class="myaccount-block">
 <router-outlet></router-outlet>
+</div>
+}
+</div>

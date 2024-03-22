@@ -1,21 +1,65 @@
-<h1>Mes données personnelles</h1>
+<div class="content">
+  <div class="content-infos">
+    <ul>
+      <li>Genre</li><li>{{ advertiserProfile?.genre }}</li>
+    </ul>
+  </div>
+  <div class="content-infos">
+    <ul>
+      <li>Orientation</li><li>{{ advertiserProfile?.orientation }}</li>
+    </ul>
+  </div>
+  <div class="content-infos">
+    <ul>
+      <li>Taille</li><li>{{ advertiserProfile?.size }} cm</li>
+    </ul>
+  </div>
+  <div class="content-infos">
+    <ul>
+      <li>Poids</li><li>{{ advertiserProfile?.weight }} kg</li>
+    </ul>
+  </div>
 
-<p>Genre : {{ advertiserProfile?.genre }}</p>
-<p>Orientation : {{ advertiserProfile?.orientation }}</p>
-<p>Taille : {{ advertiserProfile?.size }}</p>
-<p>Poids : {{ advertiserProfile?.weight }}</p>
-@if(advertiserProfile?.penisSize){<p>Taille de la fusée : {{ advertiserProfile?.penisSize }}</p>}
-@if(advertiserProfile?.braCup){<p>Taille des airbags : {{ advertiserProfile?.braCup }}</p>}
-<p>Couleur des cheveux : {{ advertiserProfile?.hairColor }}</p>
-<p>Couleur des yeux : {{ advertiserProfile?.eyeColor }}</p>
+  <div class="content-infos">
+    <ul>
+      @if(advertiserProfile?.penisSize){
+        <li>Taille de la fusée</li><li>{{ advertiserProfile?.penisSize }} cm</li>
+      }
+    </ul>
+  </div>
+  <div class="content-infos">
+    <ul>
+      @if(advertiserProfile?.braCup){
+        <li>Taille des airbags</li><li>{{ advertiserProfile?.braCup }}</li>
+      }
+    </ul>
+  </div>
+  <div class="content-infos">
+    <ul>
+      <li>Couleur des cheveux</li><li>{{ advertiserProfile?.hairColor }}</li>
+    </ul>
+  </div>
+  <div class="content-infos">
+    <ul>
+      <li>Couleur des yeux</li><li>{{ advertiserProfile?.eyeColor }}</li>
+    </ul>
+  </div>
 
-<button (click)="toggleEdit()">Modifier</button>
+
+
+<button class="edit-button" (click)="toggleEdit()">Modifier</button>
 @if(isEditing){
 <div id="edit-form">
-  <h2>Modifier mes données</h2>
-  <form>
-    <label for="genre">Genre :</label>
-    <select type="text" name="genre" id="genre" [(ngModel)]="formData.genre" required>
+  <div id="edit-form">
+    <form>
+      <div class="content-infos-plus">
+        <ul>
+          <li>
+            <label for="genre">Genre :</label>
+          </li>
+          <li>
+            <select type="text" name="genre" id="genre" [(ngModel)]="formData.genre" required>
+          
         <option value="homme" [defaultSelected]>Homme</option>
         <option value="homme" [defaultSelected]>Femme</option>
         <option value="homme" [defaultSelected]>Robot</option>
@@ -23,31 +67,66 @@
         <option value="homme" [defaultSelected]>Transexuel</option>
         <option value="homme" [defaultSelected]>Transformers</option>
     </select>
+  </li>
+</ul>
+</div>
     
-    <br>
-    <label for="orientation">Orientation :</label> <input type="text" name="orientation" id="orientation">
-    <br>
-    <label for="size">Taille (en cm) :</label>  
-    <input type="text" name="size" id="size">
-    <br>
-    <label for="weight">Poids :</label>
-    <input type="text" name="weight" id="weight">
-    <br>
+<div class="content-infos-plus">
+  <ul>
+    <li>
+      <label for="orientation">Orientation :</label></li>
+      <li>
+      <input type="text" name="orientation" id="orientation">
+    </li>
+    </ul></div>
+    <div class="content-infos-plus">
+      <ul>
+    <li>
+      <label for="size">Taille (en cm) :</label></li>
+      <li>
+      <input type="text" name="size" id="size">
+    </li>
+    </ul></div>
+    <div class="content-infos-plus"><ul>
+    <li>
+      <label for="weight">Poids :</label></li>
+      <li>
+      <input type="number" name="weight" id="weight">
+    </li>
+    </ul></div>
     @if(advertiserProfile?.penisSize){
-    <label for="penisSize">Taille de la fusée :</label>
-    <input type="number" name="penisSize" id="penisSize">
-    <br>
-    }
-    <label for="braCup">Taille des airbags :</label>
-    <input type="text" name="braCup" id="braCup">
-    <br>
-    <label for="eyeColor">Couleur des yeux :</label>
-    <input type="text" name="eyeColor" id="eyeColor">
-    <br>
-    <label for="hairColor">Couleur des cheveux :</label>
-    <input type="weight" name="hairColor" id="hairColor">
-    <br>
-    <button type="submit">Valider</button>
+      <div class="content-infos-plus"><ul><li>
+      <label for="penisSize">Taille de la fusée :</label></li>
+      <li>
+      <input type="number" name="penisSize" id="penisSize">
+    </li>
+    </ul></div>
+  }
+  <div class="content-infos-plus"><ul><li>
+      <label for="braCup">Taille des airbags :</label></li>
+      <li>
+      <input type="text" name="braCup" id="braCup">
+    </li>
+    </ul></div>
+    <div class="content-infos-plus"><ul>
+    <li>
+      <label for="eyeColor">Couleur des yeux :</label></li>
+      <li>
+      <input type="text" name="eyeColor" id="eyeColor">
+    </li>
+    </ul></div>
+    <div class="content-infos-plus">
+      <ul>
+    <li>
+      <label for="hairColor">Couleur des cheveux :</label></li>
+      <li>
+      <input type="text" name="hairColor" id="hairColor">
+    </li>
+  </ul>
+</div>
+
+    <button class="edit-button" type="submit">Valider</button>
   </form>
+  </div>
 </div>
 }

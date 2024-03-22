@@ -74,8 +74,12 @@ export class ListUsersComponent implements OnInit {
   }
   
   view(id: string) {
-    console.log('ici id select vienty du bouton:', id);
-    this.userListService.getOneUsers(id);
+    console.log("L'user a été view!");
+    console.log('ici id select:', id);
+    // select id
+    let userSelectId = id;
+    localStorage.setItem('userSelectId', userSelectId.toString());
+
     this.openModal();
   }
 

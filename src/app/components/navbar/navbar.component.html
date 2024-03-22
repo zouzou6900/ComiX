@@ -4,12 +4,23 @@
       <i class="fa-solid fa-house"></i> Accueil
     </a>
   </div>
+  <div class="nav-link">
+    <a routerLink="/about" routerLinkActive="active">
+      <i class="fa-solid fa-code"></i> About
+    </a>
+  </div>
+  <div class="nav-link">
+    <a routerLink="/thank" routerLinkActive="active">
+      <i class="fa-solid fa-hands-clapping"></i> Remerciement
+    </a>
+  </div>
   @if(isLoggedIn()){
   <div class="nav-link">
-    <a routerLink="/allannounces"
+    <a routerLink="/all-announces"
       ><i class="fa-solid fa-id-badge"></i> Annonces</a
     >
   </div>
+  
   } @else {
   <div class="nav-link">
     <a routerLink (click)="openModal(haveToConnectModal)"
@@ -18,31 +29,13 @@
   </div>
   }
 
-  <div class="nav-link">
-    <a routerLink="/all-announces" routerLinkActive="active">
-      <i class="fa-solid fa-hands-clapping"></i> Annoncestest
-    </a>
-  </div>
+  
 
-  <div class="nav-link">
-    <a routerLink="/contact" routerLinkActive="active">
-      <i class="fa-solid fa-envelope"></i> Contact
-    </a>
-  </div>
+ 
 
-  <div class="nav-link">
-    <a routerLink="/about" routerLinkActive="active">
-      <i class="fa-solid fa-code"></i> About
-    </a>
-  </div>
+ 
 
-  <div class="nav-link">
-    <a routerLink="/thank" routerLinkActive="active">
-      <i class="fa-solid fa-hands-clapping"></i> Remerciement
-    </a>
-  </div>
 
-  <div></div>
 
   @if(!isLoggedIn()){
   <div class="nav-link">
@@ -57,9 +50,14 @@
     <a routerLink="/myaccount" routerLinkActive="active"
       ><i class="fa-solid fa-user"></i>
       @if(nickname){
-      <span> Bonjour {{ nickname }}</span>
+      <span> Mon profil ({{ nickname }})</span>
       } @else { Bienvenue }</a
     >
+  </div>
+  <div class="nav-link">
+    <a routerLink="/contact" routerLinkActive="active">
+      <i class="fa-solid fa-envelope"></i> Contact
+    </a>
   </div>
   } @if(isLoggedIn() && isAdmin() === 'true'){
 
@@ -68,12 +66,13 @@
       ><i class="fa-solid fa-gear"></i
     ></a>
   </div>
-  }
+  } @if(isLoggedIn() && isAdmin() === 'true'){
   <div class="nav-link">
     <a routerLink="/admin/dashboard" routerLinkActive="active"
       ><i class="fa-solid fa-bell"></i
     ></a>
   </div>
+}
   @if(isLoggedIn()){
   <div class="nav-link">
     <a (click)="openModal(logoutModal)"
@@ -93,7 +92,7 @@
       aria-label="Close"
       (click)="modal.dismiss('cancel')"
     >
-      <span aria-hidden="true">&times;</span>
+      X
     </button>
   </div>
   <div class="modal-body">Êtes-vous sûr de vouloir vous déconnecter ?</div>

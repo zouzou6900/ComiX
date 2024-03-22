@@ -1,0 +1,36 @@
+.card-header{
+    background-color: #1b1b1b;
+    color: white;
+}
+.col-4{
+    text-align: right;
+    button{
+        padding: 20px;
+        background-color: rgb(28, 216, 129);
+        border:0;
+    }
+}
+.col-8{
+    label input button{
+        background-color: aqua;
+    }
+}
+
+
+    ul {
+        li:hover{
+        background-color: #efefef;
+       
+        }
+        a{
+            color:#1b1b1b;
+            text-decoration: none;
+            margin-left:0px;
+            display:block;
+        }
+        .btn-danger{
+            background-color: #ff004c;
+            border-radius: 0;
+            border:0;
+        }
+    }

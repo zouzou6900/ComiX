@@ -21,8 +21,10 @@ export class MyModalComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-  //   this.userListe.getOneUsers().subscribe((data) => {
-      
-  // })
-}
+    this.userDataService.getPersonalData().subscribe((data) => {
+      this.personalData = data as PersonalDataFull;
+      this.formData = { ...this.personalData.user };
+    });
+    
+  }
 }

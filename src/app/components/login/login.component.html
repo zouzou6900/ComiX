@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container">
   <form
     class="login-component"
@@ -7,7 +8,7 @@
     <h2 class="header-form">Connexion</h2>
 
     <div class="field">
-      <label for="email">Email</label>
+      
       <input
         type="email"
         id="email"
@@ -28,7 +29,6 @@
     </div>
 
     <div class="field">
-      <label for="password">Mot de passe</label>
       <input
         type="password"
         id="password"
@@ -47,7 +47,7 @@
     </div>
 
     <button [disabled]="loginForm.invalid">Connexion</button>
-    <div>
+    <div class="centered">
       Pas encore membre? <a routerLink="/register">Viens prendre ton pied!</a>
     </div>
   </form>

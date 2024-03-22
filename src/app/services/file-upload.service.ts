@@ -53,11 +53,13 @@ export class FileUploadService {
     );
   }
 
-  deleteFile(fileName: string): Observable<any> {
-    const userId = localStorage.getItem('userid');
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
-  
-    return this.http.delete(`${this.baseUrl}${userId}/gallery/${fileName}`, { headers });
+  deleteFile(url: string): Observable<any> {
+    const userId = localStorage.getItem('userId'); // Retrieve userId from localStorage
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.delete(`http://localhost:3333/api/user/${userId}/gaga/${url}`, { headers });
   }
 }
