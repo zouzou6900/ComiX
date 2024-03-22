@@ -35,12 +35,34 @@ throw new Error('Method not implemented.');
   }
 
   ngOnInit(): void {
+    this.render();
+  }
+
+  render(){
     this.checkAnnounces.getAllAnnounces().subscribe((data: any) => {
       this.announces = data;
       console.log('ici',this.announces);
     });
-    
   }
 
+  async changeAnnounceStatus(userId:number, status: string){
+    const token = localStorage.getItem('token');
+    const url = `http://localhost:3333/api/admin/announce/${userId}`;
+    const headers = { 'Authorization': `Bearer ${token}` };
+    const body = { status: `${status}` };
 
+    this.checkAnnounces.patchAnnounce(url, headers, body).subscribe(() => {
+      this.render();
+    });
+  }
+
+  async removeAnnounce(userId:number){
+    const token = localStorage.getItem('token');
+    const url = `http://localhost:3333/api/user/${userId}/announce`;
+    const headers = { 'Authorization': `Bearer ${token}` };
+
+    this.checkAnnounces.deleteAnnounce(url, headers).subscribe(() => {
+      this.render();
+    });
+  }
 }

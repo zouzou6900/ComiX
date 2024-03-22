@@ -19,12 +19,10 @@ import { ListUsersComponent } from "./pages/admin/side-bar/users/list-users/list
 import { CheckAnnouncesComponent } from "./pages/admin/side-bar/check-announces/check-announces.component";
 import { LoginGuard } from "./guards/login.guard";
 import { MyAccountComponent } from "./pages/my-account/my-account.component";
-import { AllAnnouncesComponent } from "./pages/all-announces/all-announces.component";
 import { MyPersonalDataComponent } from "./components/myaccount/my-personal-data/my-personal-data.component";
 import { MyAdComponent } from "./components/myaccount/my-ad/my-ad.component";
 import { MyAdvertiserProfilComponent } from "./components/myaccount/my-advertiser-profil/my-advertiser-profil.component";
 import { ThankComponent } from "./pages/thank/thank.component";
-import { AnnouncesComponent } from "./pages/announces/announces.component";
 import { AnnouncesAllComponent } from "./pages/announces-all/announces-all.component";
 import { AnnonceComponent } from "./pages/annonce/annonce.component";
 import { UploadFilesComponent } from "./components/upload-multiple/upload-multiple.component";

@@ -19,4 +19,12 @@ export class CheckAnnouncesService {
       headers
     });
   }
+
+  patchAnnounce(url: string, headers: any, body: any): Observable<any> {
+    return this.http.patch(url, body, { headers });
+  }
+
+  deleteAnnounce(url:string, headers:any):Observable<any> {
+    return this.http.delete(url,{headers});
+  }
 }
