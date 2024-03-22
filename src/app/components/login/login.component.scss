@@ -11,9 +11,19 @@
     input {
       width: 100%;
       display: block;
+      padding:10px;
+      border-radius:10px;
+      border:1px solid #cecece;
+      margin-bottom:15px;
     }
     .error {
       color: red;
     }
   }
+}
+
+h2.header-form{
+  background-color: #ff004c;
+  padding:10px; color:white;
+  border-radius: 10px;
 }

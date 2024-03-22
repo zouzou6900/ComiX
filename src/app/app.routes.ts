@@ -91,7 +91,7 @@ export const routes: Routes = [
     component: AdminComponent,
     canActivate: [adminGuard],
     children: [
-      { path: "dashboard", component: ContentComponent },
+      { path: "dashboard", component: ContentComponent,  },
       { path: "settings", component: SettingsComponent },
       { path: "status", component: StatusComponent },
       { path: "evenements", component: EvenementsComponent },
