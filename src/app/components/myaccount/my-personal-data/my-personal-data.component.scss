@@ -1,0 +1,92 @@
+.content{
+    text-align:center;
+    .content-infos{
+        display:flex;
+        justify-content: center;
+    ul{
+        display: flex;
+        align-items: center;
+        margin:0 0 20px 0;padding:0;
+        
+        li{
+            margin-right:0;
+            list-style: none;
+            &:first-child{
+                background-color: #c8c8c8;
+                padding: 15px 20px;
+                border-radius: 10px 0 0 10px;
+                background-color: #ff004c;
+                color:white;
+            }
+            &:last-child{
+                background-color: #c8c8c8;
+                padding: 15px 20px;
+                border-radius: 0 10px 10px 0;
+                background-color: #1b1b1b;
+                color:white;
+            }
+        }
+    }
+    
+}
+.edit-button{
+    background-color: chartreuse;
+    border:0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color:magenta;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        background-color: magenta;
+        color: chartreuse;
+        transition: all 0.3s ease-in-out;
+    }
+}
+#edit-form{
+    margin-top:20px;
+    .content-infos-plus{
+        display:flex;
+        justify-content: center;
+        ul{
+            display: flex;
+        align-items: center;
+        margin:0 0 20px 0;padding:0;
+            li{
+                list-style: none;
+                &:first-child{
+                    background-color: #c8c8c8;
+                    padding: 16px 20px;
+                    border-radius: 10px 0 0 10px;
+                    background-color: #ff004c;
+                    color:white;
+                }
+                &:last-child{
+                    background-color: #c8c8c8;
+                    padding: 15px 20px;
+                    border-radius: 0 10px 10px 0;
+                    background-color: #1b1b1b;
+                    color:white;
+                    input{
+                        border:0;
+                        background-color: #1b1b1b;
+                        color:white;
+                    }
+                }
+            }
+        }
+    }
+}
+.submit-button{
+    background-color: chartreuse;
+    border:0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color:magenta;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        background-color: magenta;
+        color: chartreuse;
+        transition: all 0.3s ease-in-out;
+    }
+}
+}

@@ -27,6 +27,7 @@ import { ThankComponent } from "./pages/thank/thank.component";
 import { AnnouncesComponent } from "./pages/announces/announces.component";
 import { AnnouncesAllComponent } from "./pages/announces-all/announces-all.component";
 import { AnnonceComponent } from "./pages/annonce/annonce.component";
+import { UploadFilesComponent } from "./components/upload-multiple/upload-multiple.component";
 
 export const routes: Routes = [
   {
@@ -45,18 +46,28 @@ export const routes: Routes = [
   {
     path: "myaccount",
     component: MyAccountComponent,
+    canActivate: [authGuard],
     children: [
+      
       {
         path: "personal-data",
         component: MyPersonalDataComponent,
+        canActivate: [authGuard],
       },
       {
         path: "advertiser-profile",
         component: MyAdvertiserProfilComponent,
+        canActivate: [authGuard],
       },
       {
         path: "my-announce",
         component: MyAdComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: "my-gallery",
+        component: UploadFilesComponent,
+        canActivate: [authGuard],
       },
     ],
   },
