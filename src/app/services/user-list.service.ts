@@ -2,16 +2,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListUser } from '../interfaces/list-user';
-import { ActivatedRoute } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserListService {
+ 
   private apiUrl = 'http://localhost:3333/api/user';
-  route: any;
    
-  constructor(private http: HttpClient,private ActivatedRoute:ActivatedRoute) {}
+  constructor(private http: HttpClient) {}
 
   getAllUsers(): Observable<ListUser[]> {
     const token = localStorage.getItem('token');
@@ -22,16 +22,15 @@ export class UserListService {
       headers,
     });
   }
-  getOneUser(){
-    const token = localStorage.getItem('token');
-    const id = localStorage.getItem('token');
-    const ids = this.route.snapshot.params['id'];
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
+  getOneUser(url:string, headers:any): Observable<any>{
+    return this.http.get<any>(url, {
+      headers, 
     });
-    console.log('ici je viens de service getOneUser',id);
-    return this.http.get<ListUser[]>(`${this.apiUrl}/${id}`, {
-      headers,
-    });
+  }
+  updateUser(url: string, headers: any, body: any): Observable<any> {
+    return this.http.patch(url, body, { headers });
+  }
+  deleteUser(url: string, headers: { Authorization: string; }):Observable<any> {
+    return this.http.delete(url,{headers});
   }
 }

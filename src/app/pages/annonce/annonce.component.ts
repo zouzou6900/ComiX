@@ -46,10 +46,10 @@ export interface Announce {
 }
 
 export interface Pricing {
-  "_15": number;
-  "_30": number;
-  "_45": number;
-  "_60": number;
+  "15min": number;
+  "30min": number;
+  "45min": number;
+  "60min": number;
 }
 
 export interface UserProfile {
