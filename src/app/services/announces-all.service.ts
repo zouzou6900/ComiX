@@ -31,15 +31,12 @@ export class AnnouncesAllService {
 
   getAnnonceById(id: number): Observable<any> {
     const token = localStorage.getItem('token');
-
     if (!token) {
       throw new Error('Missing authentication token');
     }
-
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
-
     return this.http.get<any>(`${this.API_URL}${id}/full`, { headers });
   }
 

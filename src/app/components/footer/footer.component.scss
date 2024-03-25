@@ -1,6 +1,30 @@
 footer {
   background-color: #ff004c;
-  display: flex;
-  justify-content: center;
+ text-align: center;
   margin-top: auto;
+  .logo-footer{
+    display: block;
+  }
+  .fifty-fifty{
+    
+    color:#fff;
+    h1{
+      margin:0; padding: 0;
+      font-size: 18px; font-weight: bold; text-transform: uppercase;
+    }
+    ul{
+      margin:0;padding:0;
+      justify-content: center;
+      display: flex;
+      margin-bottom:15px;
+      &:last-child{
+        text-align: left;
+      }
+      li{
+        list-style: none;
+        margin:5px;
+      }
+    }
+  }
+  
 }

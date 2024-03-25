@@ -4,7 +4,8 @@ body{
 
 .home-content {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  
 }
 
 .red-color {
@@ -31,40 +32,41 @@ body{
 }
 
 .intro {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-image: url(../../../assets/images/contact/escortagence.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
+  width:40%;
+  margin:50px 0px;
+  text-align: center;
+  border-radius: 8px;
+    background: #fafafa;
+    padding: 35px 25px 10px 25px;
+    border: 2px solid #fafafa;
+    &:last-child{
+      margin-left:30px;
+    }
+    i{
+      font-size: 35px;
+      color: #ff004c;
+    }
 }
 
 .intro h2 {
   margin-top: 15px;
   font-size: 32px;
-  background-color:rgb(237, 102, 102, 0.8);
-  color: white;
+  color:#ff004c;
   border-radius: 4px;
   padding: 3px;
 }
 
 .intro h3 {
   font-size: 28px;
-  background-color:rgb(237, 102, 102, 0.8);
-  color: white;
-  border-radius: 4px;
-  padding: 3px;
+  color: #ff004c;
+
+
   margin-top: 10px;
 }
 
 .intro p {
   font-size: 20px;
-  font-weight: 500;
-  width: 850px;
-  color: white;
-  background-color: rgb(237, 102, 102, 0.8);
+color:#1b1b1b;
   border-radius: 5px;
   padding: 5px;
   margin-top: 15px;
@@ -87,14 +89,15 @@ body{
 
 .flex-right {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 20px;
   padding: 20px;
+  text-align: center;
 }
 
 .flex-right img {
   max-width: 80%;
-  height: auto;
+  height: 100px;
 }
 
 .mega-black-title {
@@ -105,13 +108,14 @@ body{
   text-transform: uppercase;
   color: #fff;
   background-color: #1b1b1b;
+  padding:10px 0 0 0;
 }
 
 .sex {
   color: #ff004c;
   font-size: 30px;
   font-weight: bold;
-  padding: 30px;
+  padding: 0 10px;
 }
 
 .catchTxt {

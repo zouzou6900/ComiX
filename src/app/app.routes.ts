@@ -19,17 +19,16 @@ import { ListUsersComponent } from "./pages/admin/side-bar/users/list-users/list
 import { CheckAnnouncesComponent } from "./pages/admin/side-bar/check-announces/check-announces.component";
 import { LoginGuard } from "./guards/login.guard";
 import { MyAccountComponent } from "./pages/my-account/my-account.component";
-import { AllAnnouncesComponent } from "./pages/all-announces/all-announces.component";
 import { MyPersonalDataComponent } from "./components/myaccount/my-personal-data/my-personal-data.component";
 import { MyAdComponent } from "./components/myaccount/my-ad/my-ad.component";
 import { MyAdvertiserProfilComponent } from "./components/myaccount/my-advertiser-profil/my-advertiser-profil.component";
 import { ThankComponent } from "./pages/thank/thank.component";
-import { AnnouncesComponent } from "./pages/announces/announces.component";
 import { AnnouncesAllComponent } from "./pages/announces-all/announces-all.component";
 import { AnnonceComponent } from "./pages/annonce/annonce.component";
-import { PratiquesComponent } from "./pages/admin/side-bar/pratiques/pratiques.component";
-import { LogsComponent } from "./pages/admin/side-bar/logs/logs.component";
+import { UploadFilesComponent } from "./components/upload-multiple/upload-multiple.component";
 import { AdminContactComponent } from "./pages/admin/side-bar/admin-contact/admin-contact.component";
+import { LogsComponent } from "./pages/admin/side-bar/logs/logs.component";
+import { PratiquesComponent } from "./pages/admin/side-bar/pratiques/pratiques.component";
 
 export const routes: Routes = [
   {
@@ -48,18 +47,28 @@ export const routes: Routes = [
   {
     path: "myaccount",
     component: MyAccountComponent,
+    canActivate: [authGuard],
     children: [
+      
       {
         path: "personal-data",
         component: MyPersonalDataComponent,
+        canActivate: [authGuard],
       },
       {
         path: "advertiser-profile",
         component: MyAdvertiserProfilComponent,
+        canActivate: [authGuard],
       },
       {
         path: "my-announce",
         component: MyAdComponent,
+        canActivate: [authGuard],
+      },
+      {
+        path: "my-gallery",
+        component: UploadFilesComponent,
+        canActivate: [authGuard],
       },
     ],
   },
@@ -96,6 +105,16 @@ export const routes: Routes = [
       { path: 'pratiques', component: PratiquesComponent },
       { path: 'logs', component: LogsComponent },
       { path: 'contact', component: AdminContactComponent },
+      { path: "dashboard", component: ContentComponent,  },
+      { path: "settings", component: SettingsComponent },
+      { path: "status", component: StatusComponent },
+      { path: "evenements", component: EvenementsComponent },
+      { path: "sociaux", component: SociauxComponent },
+      { path: "listUsers", component: ListUsersComponent },
+      { path: "administrateur", component: AdministrateurComponent },
+      { path: "usersBan", component: UsersBanniComponent },
+      { path: "roleUsers", component: RoleUsersComponent },
+      { path: "checkAnnounces", component: CheckAnnouncesComponent },
     ],
   },
   { path: "**", redirectTo: "home", pathMatch: "full" },

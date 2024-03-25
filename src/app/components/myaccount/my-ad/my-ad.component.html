@@ -1,12 +1,22 @@
-<h1>Gérer mon annonce</h1>
+<div class="content">
 
-<p>Titre : {{ personalData?.announce?.title }}</p>
-<p>Description : {{ personalData?.announce?.description }}</p>
-<p>Privé : {{ personalData?.announce?.private }}</p>
-<p>Escorte : {{ personalData?.announce?.escort }}</p>
+<p class="title">Titre</p><p class="content-block">{{ personalData?.announce?.title }}</p>
+<p class="title">Description</p><p class="content-block">{{ personalData?.announce?.description }}</p>
+<p class="title">Privé</p><p class="content-block">
+  @if( personalData?.announce?.private){
+    Oui
+  }@else{
+    Non
+   } </p>
+<p class="title">Escorte</p><p class="content-block">
+  @if( personalData?.announce?.escort){
+    Oui
+  }@else{
+    Non
+   }
+</p>
 
-<p>Pratiques : </p>
-
+<p class="title">Pratiques</p>
 <ul>
 @for(practice of personalData?.announce?.practices; track practice){
 <li class="practice-name">
@@ -16,18 +26,16 @@
 </li>
 }
 
-
 </ul>
 
-<button (click)="toggleEdit()">Modifier</button>
+<button class="edit-button" (click)="toggleEdit()">Modifier</button>
 @if(isEditing){
 <div id="edit-form">
-  <h2>Modifier mes données</h2>
   <form (ngSubmit)="onSubmit(formData)" #f="ngForm">
-    <label for="title">Titre :</label>
+    <label for="title">Titre</label>
     <input type="text" name="title" id="title" [(ngModel)]="formData.title" required>
     <br>
-    <label for="description">Description :</label>
+    <label for="description">Description</label>
     <textarea type="text" name="description" id="description" [(ngModel)]="formData.description" required></textarea>
     <br>
     
@@ -35,14 +43,15 @@
     
 
     
-    <button type="submit" (click)="onSubmit(formData)">Valider</button>
+    
     
   </form>
 
-  
+  <button class="edit-button" type="submit" (click)="onSubmit(formData)">Valider</button>
 
 </div>
 }
 
 
-<app-upload-files></app-upload-files>
+
+</div>
